@@ -1,0 +1,48 @@
+name: guard
+# Pre-deploy guard for the public torsion-labs.com site: blocks private-key material,
+# encrypted blobs, tokens and obvious secrets before merge/deploy.
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Block encrypted blobs and env files (paths)
+        run: |
+          set -e
+          BAD=$(git ls-files | grep -Ei '\.age$|(^|/)\.env(\.|$)|\.pem$|\.key$|id_rsa|id_ed25519' || true)
+          if [ -n "$BAD" ]; then
+            echo "GUARD FAIL - disallowed file paths:"; echo "$BAD"; exit 1
+          fi
+          echo "paths: OK"
+
+      - name: Block private-key / encrypted-content markers
+        run: |
+          set -e
+          HITS=$(grep -rIlE 'BEGIN AGE ENCRYPTED FILE|AGE-SECRET-KEY-1[0-9A-Z]{58}|-----BEGIN (RSA|OPENSSH|EC|DSA)? ?PRIVATE KEY-----' . --exclude-dir=.git || true)
+          HITS=$(echo "$HITS" | grep -v '.github/workflows/ci.yml' || true)
+          if [ -n "$HITS" ]; then
+            echo "GUARD FAIL - private key / encrypted content markers:"; echo "$HITS"; exit 1
+          fi
+          echo "content: OK"
+
+      - name: Secret scan (tokens)
+        run: |
+          set -e
+          SEC=$(grep -rIlE '(sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{22,}|AIza[0-9A-Za-z_-]{35}|xox[baprs]-[A-Za-z0-9-]{10,}|eyJ[A-Za-z0-9_-]{20,}\.eyJ|Bearer [A-Za-z0-9_\-\.]{25,})' . --exclude-dir=.git || true)
+          SEC=$(echo "$SEC" | grep -v '.github/workflows/ci.yml' || true)
+          if [ -n "$SEC" ]; then
+            echo "GUARD FAIL - possible token/secret:"; echo "$SEC"; exit 1
+          fi
+          echo "secrets: OK"
+
+      - name: Result
+        run: echo "GUARD OK - no secrets or private material detected. Deployable."

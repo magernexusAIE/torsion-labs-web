@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Torsión">
+  <defs>
+    <radialGradient id="torsionGrad" cx="60" cy="60" r="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF8A3D"/>
+      <stop offset="0.30" stop-color="#FF5A5A"/>
+      <stop offset="0.64" stop-color="#7C5CFF"/>
+      <stop offset="1" stop-color="#38E0D6"/>
+    </radialGradient>
+    <radialGradient id="coreGlow" cx="60" cy="60" r="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFD68A"/>
+      <stop offset="1" stop-color="#FF5A5A"/>
+    </radialGradient>
+    <style>
+      #torsionRotor {
+        transform-box: view-box;
+        transform-origin: 60px 60px;
+        animation: torsion-spin 36s linear infinite reverse;
+      }
+      @keyframes torsion-spin {
+        to { transform: rotate(360deg); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #torsionRotor { animation: none; }
+      }
+    </style>
+  </defs>
+
+  <!-- anillo de contencion (espectro completo) -->
+  <circle cx="60" cy="60" r="52" fill="none" stroke="url(#torsionGrad)" stroke-width="1.4" opacity="0.32"/>
+
+  <g id="torsionRotor">
+    <!-- tres brazos torsionales: calidos en el nucleo, frios al manifestarse -->
+    <g fill="none" stroke="url(#torsionGrad)" stroke-width="7" stroke-linecap="round">
+      <g id="torsionArm">
+        <path d="M60 60 C 62 40 82 32 96 44 C 106 53 106 72 94 82"/>
+      </g>
+      <use href="#torsionArm" transform="rotate(120 60 60)"/>
+      <use href="#torsionArm" transform="rotate(240 60 60)"/>
+    </g>
+
+    <!-- nucleo: el corazon calido que detona la coherencia -->
+    <circle cx="60" cy="60" r="11" fill="url(#coreGlow)" opacity="0.42"/>
+    <circle cx="60" cy="60" r="6.5" fill="url(#coreGlow)"/>
+  </g>
+</svg>

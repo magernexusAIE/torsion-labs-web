@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Distributed energy — Torsión</title>
+<meta name="description" content="Computational architecture for solar micro-grids with adaptive maximum-power tracking and local software tests." />
+<link rel="canonical" href="https://torsion-labs.com/en/proyectos/energia/" />
+<link rel="alternate" hreflang="es" href="https://torsion-labs.com/proyectos/energia/" />
+<link rel="alternate" hreflang="en" href="https://torsion-labs.com/en/proyectos/energia/" />
+<link rel="icon" type="image/svg+xml" href="/assets/logo-torsion.svg" />
+<link rel="stylesheet" href="/assets/proyecto.css?v=20260812-brand1" />
+<meta name="theme-color" content="#FAF9F5" />
+<meta name="robots" content="index, follow" />
+</head>
+<body class="theme-energia">
+
+<header><div class="wrap"><nav>
+  <a href="/en/" class="brand"><img src="/assets/logo-torsion.svg" alt="" /><span class="wordmark">TORSIÓN</span></a>
+  <a href="/en/portfolio/" class="back">← Back to the Portfolio</a>
+</nav></div></header>
+
+<main>
+  <section class="hero-p"><div class="wrap">
+    <span class="chip">Active project · Energy</span>
+    <h1>Distributed energy</h1>
+    <p class="lead">Sovereign solar micro-grids at the edge: nodes that optimize energy extraction
+      autonomously, without depending on a central grid or continuous connectivity.</p>
+  </div></section>
+
+  <section class="bloque"><div class="wrap">
+    <h2>What it is</h2>
+    <p>The project explores the Torsión thesis in the energy domain through a <strong>computational model
+      of a sovereign edge node</strong> with adaptive maximum-power tracking (MPPT). Its thermal, state,
+      and coordination rules are checked through formulas and local tests; measurement on a panel and
+      hardware belongs to the next experimental milestone.</p>
+    <p>The deployment goal: micro-grids that dignify the energy autonomy of communities and remote
+      operations, with accessible hardware and local control of processing.</p>
+    <p><strong>Current stage:</strong> computational architecture implemented and locally tested; the
+      edge-hardware pilot has not yet been run.</p>
+    <p><strong>Public objective:</strong> demonstrate that a micro-grid can optimize and coordinate energy locally with accessible hardware and sovereign control.</p>
+    <p><strong>Next verifiable milestone:</strong> run the documented pilot protocol on a panel and edge node with measurable acceptance criteria.</p>
+  </div></section>
+
+  <section class="bloque"><div class="wrap">
+    <h2>Lab updates</h2>
+    <ul class="updates">
+      <li class="reveal">
+        <span class="badge">Computational model</span>
+        <div class="fecha">July 2026 · week 1</div>
+        <h3>The thermal model changed by ~16% relative to the previous formula</h3>
+        <p>The local technical review re-derived the thermal rule for maximum-power tracking. In the numerical
+          scenario at 35 °C, the output differs by ~16% from the previous formula; local tests verify
+          software behavior, not a panel or edge-hardware measurement.</p>
+      </li>
+      <li class="reveal">
+        <span class="badge">Governance checkpoint</span>
+        <div class="fecha">August 2026 · week 2</div>
+        <h3>Integration semantics remain open</h3>
+        <p>Baseline Week 06 defers the formal definition of delivered power after MPPT and of the fleet
+          root state. The architecture remains under local testing; these open items do not erase existing
+          tests, but they prevent presenting the energy integration as closed.</p>
+      </li>
+    </ul>
+    <p class="nota-metodo">Every update distinguishes tested software, computational models, documentary
+      checks, active research, and projections. Human adjudication bounds scope; a local test is not
+      presented as a physical measurement. The internal mechanism is never published.</p>
+  </div></section>
+
+  <section class="cta"><div class="wrap">
+    <a href="/en/contact/#contact-status" class="btn btn-primary">Institutional contact</a>
+  </div></section>
+</main>
+
+<footer><div class="wrap"><div class="foot">
+  <div>We present the architecture and the evidence, not the core.</div>
+  <div>© 2026 Torsión · torsion-labs.com</div>
+</div></div></footer>
+
+<script src="/assets/reveal.js"></script>
+<noscript><link rel="stylesheet" href="/assets/reveal-noscript.css"></noscript>
+</body>
+</html>
