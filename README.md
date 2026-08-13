@@ -28,17 +28,33 @@ _headers              security headers (CSP, HSTS, X-Frame-Options)
 robots.txt            SEO
 sitemap.xml           bilingual sitemap (hreflang)
 .github/workflows/    CI guard (blocks secrets/keys before deploy)
+config/               sealed runtime contract and SHA-256 manifest (repository only)
+scripts/              deterministic dist builder and fail-closed tests (repository only)
 ```
 
-## Planned deployment
+## Publication status
 
-The deployment provider, public repository, branch policy, previews, and production cutover remain
-under governance review. This local candidate has no active domain, mailbox, public repository, or
-deployment. It uses plain static files and requires no build step.
+The site is publicly available at **https://torsion-labs.com** and is deployed as a static site on
+Cloudflare Pages from the public repository `magernexusAIE/torsion-labs-web`, branch `main`. The
+canonical public host is `torsion-labs.com`; `www.torsion-labs.com` redirects permanently to it.
+The currently published revision uses plain static files from the repository root and has no build
+command. That remains the observed production state until the separately governed Pages cutover
+activates the deterministic `dist` build described below. The site requires no application backend.
+
+The corporate mailbox and private security-reporting channel are separate pending capabilities.
+No email address is presented as active until that mailbox and its recovery controls have been
+created and verified.
+
+The repository defines a governed Pages build into a fresh `dist` directory. The deterministic
+builder admits exactly 61 runtime files, including a custom `404.html`, and excludes README,
+SECURITY, `.github`, `config`, and `scripts` from the served site. A source change alone does not
+activate that output contract: the Pages cutover and its production verification remain separately
+governed operations.
 
 ## Security
 
-The public security-reporting channel is pending activation and verification. See `SECURITY.md`.
+The public security-reporting channel is pending activation and verification. Do not send sensitive
+reports to an address that is not explicitly published as verified in `SECURITY.md`.
 
 ## About
 

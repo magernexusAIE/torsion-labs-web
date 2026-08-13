@@ -44,5 +44,27 @@ jobs:
           fi
           echo "secrets: OK"
 
+      - name: Verify sealed runtime source
+        run: node scripts/build-public-dist.mjs --source . --verify-only
+
+      - name: Run fail-closed artifact tests
+        run: node scripts/test-public-artifact.mjs .
+
+      - name: Build isolated deployment artifact
+        run: node scripts/build-public-dist.mjs --source . --out dist-ci
+
+      - name: Verify isolated deployment artifact
+        run: node scripts/build-public-dist.mjs --source . --out dist-ci --verify-dist
+
+      - name: Assert repository files are not deployable
+        run: |
+          set -e
+          test ! -e dist-ci/README.md
+          test ! -e dist-ci/SECURITY.md
+          test ! -e dist-ci/.github
+          test ! -e dist-ci/config
+          test ! -e dist-ci/scripts
+          test -f dist-ci/404.html
+
       - name: Result
-        run: echo "GUARD OK - no secrets or private material detected. Deployable."
+        run: echo "GUARD OK - sealed 61-file runtime is isolated and deployable."
