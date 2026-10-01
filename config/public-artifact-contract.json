@@ -15,6 +15,8 @@
     "en/evidence/index.html",
     "contacto/index.html",
     "en/contact/index.html",
+    "privacidad/index.html",
+    "en/privacy/index.html",
     "proyectos/rotor-18/index.html",
     "proyectos/energia/index.html",
     "proyectos/seguridad/index.html",
@@ -28,6 +30,7 @@
     "en/proyectos/percepcion/index.html",
     "en/proyectos/educacion/index.html",
     "assets/proyecto.css",
+    "assets/footer-links.css",
     "assets/home-v3.css",
     "assets/home-v3.js",
     "assets/home-v4.css",
@@ -83,6 +86,11 @@
   "forbidden_dist_files": [
     "README.md",
     "SECURITY.md"
+  ],
+  "external_navigation_allowlist": [
+    "https://github.com/torsion-labs",
+    "https://www.linkedin.com/company/torsion-labs/",
+    "https://x.com/TorsionLab"
   ],
   "mime_by_extension": {
     ".html": "text/html; charset=utf-8",
