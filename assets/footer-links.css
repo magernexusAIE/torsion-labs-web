@@ -1,0 +1,18 @@
+footer.site-footer {
+  flex-wrap: wrap;
+  gap: 16px 28px;
+}
+
+footer.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+footer.site-footer nav a {
+  white-space: nowrap;
+}
+
+footer.site-footer a {
+  text-underline-offset: .2em;
+}

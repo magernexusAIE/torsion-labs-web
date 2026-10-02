@@ -50,11 +50,11 @@ jobs:
       - name: Run fail-closed artifact tests
         run: node scripts/test-public-artifact.mjs .
 
-      - name: Build isolated deployment artifact
-        run: node scripts/build-public-dist.mjs --source . --out dist-ci
+      - name: Build synthetic CI-only artifact
+        run: node scripts/build-public-dist.mjs --source . --out dist-ci --synthetic-privacy
 
-      - name: Verify isolated deployment artifact
-        run: node scripts/build-public-dist.mjs --source . --out dist-ci --verify-dist
+      - name: Verify synthetic CI-only artifact
+        run: node scripts/build-public-dist.mjs --source . --out dist-ci --verify-dist --synthetic-privacy
 
       - name: Assert repository files are not deployable
         run: |
@@ -67,4 +67,4 @@ jobs:
           test -f dist-ci/404.html
 
       - name: Result
-        run: echo "GUARD OK - sealed 61-file runtime is isolated and deployable."
+        run: echo "GUARD OK - sealed 64-file runtime is isolated; privacy output is synthetic CI-only."
