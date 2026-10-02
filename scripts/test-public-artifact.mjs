@@ -177,7 +177,7 @@ try {
       const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] ?? '';
       if (!html.includes(`<nav class="${navClass}" aria-label="${label}">`) ||
           !html.includes(`<span class="social-heading">${label}</span>`) ||
-          !html.includes('href="/assets/footer-links.css?v=all-pages-1"') ||
+          !html.includes('href="/assets/footer-links.css?v=footer-nav-1"') ||
           (footer.match(/<nav class="social-nav/g) ?? []).length !== 1) {
         throw new Error(`SOCIAL_NAV_MISSING:${relative}`);
       }
@@ -185,6 +185,75 @@ try {
         const iconAnchor = `<a href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${name}"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="`;
         if (!footer.includes(iconAnchor) || footer.split(`href="${url}"`).length !== 2) {
           throw new Error(`SOCIAL_ICON_MISSING:${relative}:${name}`);
+        }
+      }
+    }
+  });
+
+  await expectPass('bilingual_footer_navigation_all_pages', async () => {
+    const contract = JSON.parse(await readFile(path.join(source, 'config', 'public-artifact-contract.json'), 'utf8'));
+    const pages = contract.runtime_allowlist.filter((relative) => relative.endsWith('.html'));
+    const css = await readFile(path.join(baseline, 'assets/footer-links.css'), 'utf8');
+    if (pages.length !== 27 ||
+        !css.includes('grid-template-columns: repeat(3, minmax(0, 1fr));') ||
+        !css.includes('flex: 0 0 100%;') ||
+        !/footer\.site-footer \.footer-nav\s*\{[^}]*height:\s*auto;/.test(css) ||
+        !/footer\.site-footer \.social-nav\s*\{[^}]*height:\s*auto;/.test(css) ||
+        !css.includes('footer.site-footer--light .footer-nav-title') ||
+        !css.includes('@media (max-width: 420px)')) {
+      throw new Error('FOOTER_NAV_STYLE_INVALID');
+    }
+    const languages = {
+      es: {
+        label: 'Navegación del sitio',
+        groups: ['Torsión', 'Explorar', 'Información'],
+        links: [
+          ['Inicio', '/'], ['Postura', '/postura/'], ['Ciencia', '/ciencia/'],
+          ['Portafolio', '/portafolio/'], ['Evidencia', '/evidencia/'],
+          ['Contacto', '/contacto/'], ['Aviso de privacidad', '/privacidad/'],
+        ],
+        contact: '/contacto/',
+        privacy: '/privacidad/',
+      },
+      en: {
+        label: 'Site navigation',
+        groups: ['Torsion', 'Explore', 'Information'],
+        links: [
+          ['Home', '/en/'], ['Posture', '/en/posture/'], ['Science', '/en/science/'],
+          ['Portfolio', '/en/portfolio/'], ['Evidence', '/en/evidence/'],
+          ['Contact', '/en/contact/'], ['Privacy notice', '/en/privacy/'],
+        ],
+        contact: '/en/contact/',
+        privacy: '/en/privacy/',
+      },
+    };
+    for (const relative of pages) {
+      const html = await readFile(path.join(baseline, ...relative.split('/')), 'utf8');
+      const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] ?? '';
+      const nav = footer.match(/<nav class="footer-nav"[\s\S]*?<\/nav>/i)?.[0] ?? '';
+      const expected = relative.startsWith('en/') ? languages.en : languages.es;
+      if ((footer.match(/<nav class="footer-nav"/g) ?? []).length !== 1 ||
+          !nav.includes('aria-label="' + expected.label + '"') ||
+          (nav.match(/<div class="footer-nav-group">/g) ?? []).length !== 3 ||
+          (nav.match(/<a href=/g) ?? []).length !== 7 ||
+          !html.includes('href="/assets/footer-links.css?v=footer-nav-1"') ||
+          footer.indexOf('class="footer-nav"') > footer.indexOf('class="social-nav')) {
+        throw new Error(`FOOTER_NAV_STRUCTURE_INVALID:${relative}`);
+      }
+      for (const heading of expected.groups) {
+        if (!nav.includes('<h2 class="footer-nav-title">' + heading + '</h2>')) {
+          throw new Error(`FOOTER_NAV_GROUP_MISSING:${relative}:${heading}`);
+        }
+      }
+      for (const [label, route] of expected.links) {
+        if (!nav.includes('<a href="' + route + '">' + label + '</a>') ||
+            !contract.runtime_allowlist.includes(route.slice(1) + 'index.html') && route !== '/') {
+          throw new Error(`FOOTER_NAV_LINK_INVALID:${relative}:${route}`);
+        }
+      }
+      for (const route of [expected.contact, expected.privacy]) {
+        if (footer.split('href="' + route + '"').length !== 2) {
+          throw new Error(`FOOTER_NAV_DUPLICATE_LINK:${relative}:${route}`);
         }
       }
     }
