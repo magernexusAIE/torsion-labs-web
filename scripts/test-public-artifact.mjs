@@ -155,6 +155,26 @@ try {
     }
   });
 
+  await expectPass('accessible_social_icons_bilingual', async () => {
+    const profiles = [
+      ['GitHub', 'https://github.com/torsion-labs'],
+      ['LinkedIn', 'https://www.linkedin.com/company/torsion-labs/'],
+      ['X', 'https://x.com/TorsionLab'],
+    ];
+    for (const relative of ['index.html', 'en/index.html', 'privacidad/index.html', 'en/privacy/index.html']) {
+      const html = await readFile(path.join(baseline, ...relative.split('/')), 'utf8');
+      const label = relative.startsWith('en/') ? 'Follow Torsion' : 'Seguir a Torsión';
+      if (!html.includes(`<nav class="social-nav" aria-label="${label}">`) ||
+          !html.includes(`<span class="social-heading">${label}</span>`)) {
+        throw new Error(`SOCIAL_NAV_MISSING:${relative}`);
+      }
+      for (const [name, url] of profiles) {
+        const iconAnchor = `<a href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${name}"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="`;
+        if (!html.includes(iconAnchor)) throw new Error(`SOCIAL_ICON_MISSING:${relative}:${name}`);
+      }
+    }
+  });
+
   const extra = path.join(temp, 'extra');
   await cp(baseline, extra, { recursive: true });
   await writeFile(path.join(extra, 'README.md'), 'not runtime\n');
@@ -243,7 +263,7 @@ try {
   await copyGovernedSource(unsafeExternal);
   const unsafeIndex = path.join(unsafeExternal, 'index.html');
   await writeFile(unsafeIndex, (await readFile(unsafeIndex, 'utf8'))
-    .replace('target="_blank" rel="noopener noreferrer">GitHub', 'target="_blank">GitHub'));
+    .replace('target="_blank" rel="noopener noreferrer" aria-label="GitHub"', 'target="_blank" aria-label="GitHub"'));
   await resealFile(unsafeExternal, 'index.html');
   await expectFail('reject_external_without_safe_rel', 'EXTERNAL_LINK_REL_INVALID', () => verifySource(unsafeExternal));
 

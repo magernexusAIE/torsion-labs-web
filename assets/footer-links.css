@@ -1,3 +1,24 @@
+/*
+ * The GitHub, LinkedIn and X SVG paths in the four social footers are from
+ * Bootstrap Icons (https://github.com/twbs/icons), MIT License.
+ * Copyright (c) 2019-2024 The Bootstrap Authors.
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 footer.site-footer {
   flex-wrap: wrap;
   gap: 16px 28px;
@@ -15,4 +36,56 @@ footer.site-footer nav a {
 
 footer.site-footer a {
   text-underline-offset: .2em;
+}
+
+footer.site-footer .social-nav {
+  display: grid;
+  gap: 4px;
+}
+
+footer.site-footer .social-heading {
+  color: #f5f7f2;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+footer.site-footer .social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+footer.site-footer .social-links a {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: #aab5ae;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: color .18s ease, background-color .18s ease;
+}
+
+footer.site-footer .social-links a:hover {
+  color: #ceff49;
+  background: #ceff4914;
+}
+
+footer.site-footer .social-links a:focus-visible {
+  color: #ceff49;
+  outline: 2px solid #ceff49;
+  outline-offset: 2px;
+}
+
+footer.site-footer .social-links svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  footer.site-footer .social-links a {
+    transition: none;
+  }
 }
