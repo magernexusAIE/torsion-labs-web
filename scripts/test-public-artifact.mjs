@@ -155,22 +155,37 @@ try {
     }
   });
 
-  await expectPass('accessible_social_icons_bilingual', async () => {
+  await expectPass('accessible_social_icons_all_pages', async () => {
     const profiles = [
       ['GitHub', 'https://github.com/torsion-labs'],
       ['LinkedIn', 'https://www.linkedin.com/company/torsion-labs/'],
       ['X', 'https://x.com/TorsionLab'],
     ];
-    for (const relative of ['index.html', 'en/index.html', 'privacidad/index.html', 'en/privacy/index.html']) {
+    const contract = JSON.parse(await readFile(path.join(source, 'config', 'public-artifact-contract.json'), 'utf8'));
+    const pages = contract.runtime_allowlist.filter((relative) => relative.endsWith('.html'));
+    const original = new Set(['index.html', 'en/index.html', 'privacidad/index.html', 'en/privacy/index.html']);
+    if (pages.length !== 27) throw new Error(`SOCIAL_PAGE_COUNT_INVALID:${pages.length}`);
+    const css = await readFile(path.join(baseline, 'assets/footer-links.css'), 'utf8');
+    if (!/\.social-links svg\s*\{[^}]*width:\s*22px;[^}]*height:\s*22px;/s.test(css) ||
+        !/\.social-nav--large \.social-links svg\s*\{[^}]*width:\s*24\.2px;[^}]*height:\s*24\.2px;/s.test(css)) {
+      throw new Error('SOCIAL_ICON_SIZE_INVALID');
+    }
+    for (const relative of pages) {
       const html = await readFile(path.join(baseline, ...relative.split('/')), 'utf8');
       const label = relative.startsWith('en/') ? 'Follow Torsion' : 'Seguir a Torsión';
-      if (!html.includes(`<nav class="social-nav" aria-label="${label}">`) ||
-          !html.includes(`<span class="social-heading">${label}</span>`)) {
+      const navClass = original.has(relative) ? 'social-nav' : 'social-nav social-nav--large';
+      const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] ?? '';
+      if (!html.includes(`<nav class="${navClass}" aria-label="${label}">`) ||
+          !html.includes(`<span class="social-heading">${label}</span>`) ||
+          !html.includes('href="/assets/footer-links.css?v=all-pages-1"') ||
+          (footer.match(/<nav class="social-nav/g) ?? []).length !== 1) {
         throw new Error(`SOCIAL_NAV_MISSING:${relative}`);
       }
       for (const [name, url] of profiles) {
         const iconAnchor = `<a href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${name}"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="`;
-        if (!html.includes(iconAnchor)) throw new Error(`SOCIAL_ICON_MISSING:${relative}:${name}`);
+        if (!footer.includes(iconAnchor) || footer.split(`href="${url}"`).length !== 2) {
+          throw new Error(`SOCIAL_ICON_MISSING:${relative}:${name}`);
+        }
       }
     }
   });
