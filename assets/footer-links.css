@@ -1,5 +1,5 @@
 /*
- * The GitHub, LinkedIn and X SVG paths in the four social footers are from
+ * The GitHub, LinkedIn and X SVG paths in the social footers are from
  * Bootstrap Icons (https://github.com/twbs/icons), MIT License.
  * Copyright (c) 2019-2024 The Bootstrap Authors.
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -82,6 +82,25 @@ footer.site-footer .social-links svg {
   width: 22px;
   height: 22px;
   fill: currentColor;
+}
+
+footer.site-footer .social-nav--large .social-links svg {
+  width: 24.2px;
+  height: 24.2px;
+}
+
+footer.site-footer--light .social-heading {
+  color: #17241e;
+}
+
+footer.site-footer--light .social-links a {
+  color: #52625a;
+}
+
+footer.site-footer--light .social-links a:hover,
+footer.site-footer--light .social-links a:focus-visible {
+  color: #244d35;
+  background: #244d3514;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -319,7 +319,11 @@ function validateProductionInvariants(specification, sourceContent) {
   const notFound = sourceContent.get('404.html').toString('utf8');
   if (!/<meta\s+name="robots"\s+content="noindex,nofollow">/i.test(notFound)) fail('404_NOINDEX_MISSING');
   if (!/href="\/"/.test(notFound) || !/href="\/en\/"/.test(notFound)) fail('404_HOME_LINKS_MISSING');
-  if (/<(?:script|form)\b/i.test(notFound) || /https?:\/\//i.test(notFound)) fail('404_ACTIVE_OR_REMOTE_CONTENT');
+  const approvedNotFoundLinks = APPROVED_EXTERNAL_LINKS.reduce(
+    (htmlContent, url) => htmlContent.replaceAll(url, ''), notFound);
+  if (/<(?:script|form)\b/i.test(notFound) || /https?:\/\//i.test(approvedNotFoundLinks)) {
+    fail('404_ACTIVE_OR_REMOTE_CONTENT');
+  }
 
   const headers = sourceContent.get('_headers').toString('utf8');
   for (const required of specification.contract.required_security_headers) {
