@@ -19,7 +19,7 @@ const RELEASE_COPY = {
     ['<meta name="robots" content="noindex,nofollow">', '<meta name="robots" content="index,follow">'],
     ['<meta name="torsion-publication-state" content="LOCAL_DRAFT_PUBLICATION_NO_GO">', '<meta name="torsion-publication-state" content="PUBLISHED_NOTICE">'],
     ['Candidato local · publicación bloqueada', 'Aviso de privacidad'],
-    ['Este candidato permanece fuera de producción hasta verificar identidad, domicilio y recepción de solicitudes.', 'Esta página distingue los datos técnicos del sitio de las solicitudes enviadas al canal de privacidad.'],
+    ['Este candidato permanece fuera de producción hasta verificar identidad, domicilio y recepción de solicitudes.', 'Esta página distingue los datos técnicos del sitio, las consultas voluntarias de colaboración y las solicitudes enviadas al canal de privacidad.'],
     ['Aviso simplificado · candidato local', 'Aviso simplificado'],
     ['Los valores pendientes se insertarán sólo tras la ratificación final de publicación.', 'La fecha de vigencia de este aviso es {{EFFECTIVE_DATE}}.'],
     ['El medio previsto es <strong>{{PRIVACY_EMAIL}}</strong>; aún falta acreditar su revisión operativa antes de activarlo en este aviso.', 'El medio para ejercer derechos es <strong>{{PRIVACY_EMAIL}}</strong>.'],
@@ -38,7 +38,7 @@ const RELEASE_COPY = {
     ['<meta name="robots" content="noindex,nofollow">', '<meta name="robots" content="index,follow">'],
     ['<meta name="torsion-publication-state" content="LOCAL_DRAFT_PUBLICATION_NO_GO">', '<meta name="torsion-publication-state" content="PUBLISHED_NOTICE">'],
     ['Local candidate · publication blocked', 'Privacy notice'],
-    ["This candidate remains outside production until the controller's identity, address and request handling are verified.", 'This page distinguishes technical website data from requests sent to the privacy channel.'],
+    ["This candidate remains outside production until the controller's identity, address and request handling are verified.", 'This page distinguishes technical website data, voluntary collaboration inquiries and requests sent to the privacy channel.'],
     ['Short-form notice · local candidate', 'Short-form notice'],
     ['Pending values will be inserted only after the final publication gate.', 'This notice takes effect on {{EFFECTIVE_DATE}}.'],
     ['The planned address is <strong>{{PRIVACY_EMAIL}}</strong>; its operating review must still be evidenced before this notice activates it.', 'To exercise your rights, write to <strong>{{PRIVACY_EMAIL}}</strong>.'],
@@ -304,7 +304,7 @@ function validateProductionInvariants(specification, sourceContent) {
   const runtime = specification.contract.runtime_allowlist;
   const html = runtime.filter((item) => item.endsWith('.html'));
   const canonicalPages = html.filter((item) => item === 'index.html' || item.endsWith('/index.html'));
-  if (runtime.length !== 64) fail('RUNTIME_COUNT_INVALID', String(runtime.length));
+  if (runtime.length !== 68) fail('RUNTIME_COUNT_INVALID', String(runtime.length));
   if (html.length !== 27 || canonicalPages.length !== 26 || !runtime.includes('404.html')) {
     fail('HTML_TOPOLOGY_INVALID');
   }
