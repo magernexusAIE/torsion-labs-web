@@ -45,4 +45,14 @@
   <url><loc>https://torsion-labs.com/en/proyectos/biomedicina/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://torsion-labs.com/en/proyectos/percepcion/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://torsion-labs.com/en/proyectos/educacion/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url>
+    <loc>https://torsion-labs.com/privacidad/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://torsion-labs.com/privacidad/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://torsion-labs.com/en/privacy/" />
+  </url>
+  <url>
+    <loc>https://torsion-labs.com/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://torsion-labs.com/privacidad/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://torsion-labs.com/en/privacy/" />
+  </url>
 </urlset>
