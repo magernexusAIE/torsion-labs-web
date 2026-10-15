@@ -3,73 +3,413 @@
   "contract_id": "TORSION_WEB_PUBLIC_ARTIFACT_V1",
   "contract_sha256": "4163AF262C11AAA9924FFD3D6EA1C44850F73174792005415DFB62844DE28BDF",
   "files": [
-    {"path":"index.html","sha256":"4A00162ADD3AC8E6A9E9CAAAF81A67218FF96895A865BB1EA26A163A77CFDB72","bytes":16158,"mime":"text/html; charset=utf-8"},
-    {"path":"404.html","sha256":"429E5C2531284631313D74CBECD1E15BA35F6D1178428B976B90D3A7364EF048","bytes":4191,"mime":"text/html; charset=utf-8"},
-    {"path":"en/index.html","sha256":"9AD72854F1A6FF4E0CD3DC89DEC8A5329D1534E2375AF85E71DE987A68D5431E","bytes":15892,"mime":"text/html; charset=utf-8"},
-    {"path":"postura/index.html","sha256":"37F3159CAB7F98D6E49153262FDFFAE0C7522C50FC0A9FFCA39D5EA32676477E","bytes":7265,"mime":"text/html; charset=utf-8"},
-    {"path":"en/posture/index.html","sha256":"AB184E0B5543DDF7FB82E4B13910F7271F4C1B7A72F46307E2D3D544479FB28A","bytes":7231,"mime":"text/html; charset=utf-8"},
-    {"path":"ciencia/index.html","sha256":"4B98D81852C3D0BDBA3C744105F208CAF4CF54FA709C0E4239E8DEAA5F7E6A6B","bytes":12439,"mime":"text/html; charset=utf-8"},
-    {"path":"en/science/index.html","sha256":"23B74B7784A98066BE7E5FB3DE3A91ADFBB18020BABF330C041821ECF8880DAE","bytes":10754,"mime":"text/html; charset=utf-8"},
-    {"path":"portafolio/index.html","sha256":"BB1A1AAB7A2DDF8314FC610F77154318C77190D4989F2579C13BEAE59416A678","bytes":10253,"mime":"text/html; charset=utf-8"},
-    {"path":"en/portfolio/index.html","sha256":"575441B7121A42444F9DC0351A6D917384275C59968D05DFEFE56E2F83B498AF","bytes":9532,"mime":"text/html; charset=utf-8"},
-    {"path":"evidencia/index.html","sha256":"4E60A26DA0EF5F4DF69D5E643D17980B5B82BAD1F848E9F908D3686D23A4DAA8","bytes":9664,"mime":"text/html; charset=utf-8"},
-    {"path":"en/evidence/index.html","sha256":"FFA6C807294DCDF49F3DEAC5F2A686E0D9DD8F0A58C8D93E339D7876291589C8","bytes":9520,"mime":"text/html; charset=utf-8"},
-    {"path":"contacto/index.html","sha256":"27C77068AD97F19DBBED70F66BCB36CE383793D97C09C7D39F3CAE47888915D2","bytes":7344,"mime":"text/html; charset=utf-8"},
-    {"path":"en/contact/index.html","sha256":"CB7A62FA1911FF378363E8A5A39AB44D2B026EE0311E2D600021437006E1DE5E","bytes":7257,"mime":"text/html; charset=utf-8"},
-    {"path":"privacidad/index.html","sha256":"A9A2E5B5216F7FDFA381D62E8014A676FDD95D77CA7B1C9227902C1936C5427F","bytes":13642,"mime":"text/html; charset=utf-8"},
-    {"path":"en/privacy/index.html","sha256":"02F909F21C3534A6E166AC3DF063F2677E3F957CC85019F7BA918B25CA917236","bytes":13058,"mime":"text/html; charset=utf-8"},
-    {"path":"proyectos/rotor-18/index.html","sha256":"BE0CF7BA1017F5FD50945D0331F970835701DE25D6F32092F7839AD41D02FB85","bytes":7948,"mime":"text/html; charset=utf-8"},
-    {"path":"proyectos/energia/index.html","sha256":"B7D105201303AA8236EFE85FCF569C2EAA0C961E24F3D2AF62DCEE08337F07DA","bytes":8346,"mime":"text/html; charset=utf-8"},
-    {"path":"proyectos/seguridad/index.html","sha256":"EC644D7F79C24E5610F7F94F5EEC82D6B95ED568E7AA55E1C79F53ED6186EF38","bytes":7400,"mime":"text/html; charset=utf-8"},
-    {"path":"proyectos/biomedicina/index.html","sha256":"C167E38489E917ED8721FC1B33FD0E6ED6E635D7AA0390F7B57825D053752554","bytes":7727,"mime":"text/html; charset=utf-8"},
-    {"path":"proyectos/percepcion/index.html","sha256":"2722B37F41BC83B0B7370AAB65828E2F27CCB310FF1BA09363979C2A5B3EDE68","bytes":7559,"mime":"text/html; charset=utf-8"},
-    {"path":"proyectos/educacion/index.html","sha256":"1609DD47A3BD3DB83884CA368CC2D145F2F6A25BBE10920382021A93973AF040","bytes":9951,"mime":"text/html; charset=utf-8"},
-    {"path":"en/proyectos/rotor-18/index.html","sha256":"AE016A55D1019752ED506CFECA995233D138DF504027D110C65CE81F4C0527C4","bytes":7754,"mime":"text/html; charset=utf-8"},
-    {"path":"en/proyectos/energia/index.html","sha256":"F00ED41DCABC8CFE6EF374D7D5EA2AD6E8D6BA69C36D911504CA2818E1B9DF7D","bytes":8133,"mime":"text/html; charset=utf-8"},
-    {"path":"en/proyectos/seguridad/index.html","sha256":"029E6DF8E379BDA1B1DED46DC7F433F4B980321CE8A8F0EFD474C9DA0E4E9D3E","bytes":7210,"mime":"text/html; charset=utf-8"},
-    {"path":"en/proyectos/biomedicina/index.html","sha256":"07A318A2305AD811C68DEFCB8D5C8F416682B2525D3AA2D1A6E380F021C4E0C2","bytes":7579,"mime":"text/html; charset=utf-8"},
-    {"path":"en/proyectos/percepcion/index.html","sha256":"F2A14086A620382C99C5CC3BD5B5014885A581A04B841A4643D26A60D94192A2","bytes":7452,"mime":"text/html; charset=utf-8"},
-    {"path":"en/proyectos/educacion/index.html","sha256":"3E4706FEAEEFE0964665AEEBEABBC06DC0A51E72AF877129E52DB5F4CCC331B9","bytes":9638,"mime":"text/html; charset=utf-8"},
-    {"path":"assets/proyecto.css","sha256":"AC55CE32181E1248F7E52669B2F36C3AD398FF0EBBED5F5AC170E9DB48061C69","bytes":4825,"mime":"text/css; charset=utf-8"},
-    {"path":"assets/footer-links.css","sha256":"334B743DD0AD83291714F41862A54385B5A057F74D5F033F87BB879E74DABBCB","bytes":4042,"mime":"text/css; charset=utf-8"},
-    {"path":"assets/home-v3.css","sha256":"AE615AFCC66555B960B5D767C5C65C357AB6CF83C73B897AB551524546F3C18A","bytes":19602,"mime":"text/css; charset=utf-8"},
-    {"path":"assets/home-v3.js","sha256":"9E87946801CD0F0992597C8FE7EF75E6AF623AF0DEB4ED18E6ED41616369E54B","bytes":3091,"mime":"application/javascript"},
-    {"path":"assets/home-v4.css","sha256":"3D050F8C428F3B270041951796E7670CBCCE7C2916492F605A2294D61B5287F7","bytes":6910,"mime":"text/css; charset=utf-8"},
-    {"path":"assets/home-v4-finish.css","sha256":"2D0408F127F9350A91C108F70917645CAF13B9FD909D5B5C8EEDD87FE73D0B9E","bytes":14254,"mime":"text/css; charset=utf-8"},
-    {"path":"assets/home-v4.js","sha256":"B824698C466FF5D4DA57D5378265079FEB330B22E1A1D22BAA90D8552A516BEA","bytes":15308,"mime":"application/javascript"},
-    {"path":"assets/reveal.js","sha256":"2A59A3EA15CC56714E67DD5BEB1E1CBAAC8DD0543DB49A50C450492B828C0615","bytes":516,"mime":"application/javascript"},
-    {"path":"assets/reveal-noscript.css","sha256":"4995E757230DE84A9F08D1771294E27FD8FB0F7F9103AB51F823FCFCD6D0C048","bytes":34,"mime":"text/css; charset=utf-8"},
-    {"path":"assets/science-v4.css","sha256":"496D35E7C2F5A150B3249B309CE95A182A1763DC889C036FAB39BBDFAA2D3085","bytes":6866,"mime":"text/css; charset=utf-8"},
-    {"path":"assets/portfolio-v4.css","sha256":"2C0C1EDAEDF26F2BB0C0FFFE215A842152CD312CFC77CB68C5866780863E1C88","bytes":6000,"mime":"text/css; charset=utf-8"},
-    {"path":"assets/logo-torsion.svg","sha256":"9E3C6B386BA41C0FBD7B665DC9ABA636454B05BB08F0D7B215BC538D95AAFDC2","bytes":1796,"mime":"image/svg+xml"},
-    {"path":"assets/hero.webp","sha256":"9194137C72F8AE9ACB027E82BC879218902E10107695479B3DA19AA8623C8A6F","bytes":294754,"mime":"image/webp"},
-    {"path":"assets/terrascope.webp","sha256":"97163DB834354086B7B77727E4535F1C460BCDEFF7D032389A50C7A5243D3B91","bytes":273186,"mime":"image/webp"},
-    {"path":"assets/og-image.png","sha256":"92EA10CCF8AA13E05CB03F6408E5656302048D485856A2C4D9323C7BD0B88A87","bytes":674499,"mime":"image/png"},
-    {"path":"assets/fonts/inter-latin-var.woff2","sha256":"3100E775E8616CD2611BEECFA23A4263D7037586789B43F035236A2E6FBD4C62","bytes":48256,"mime":"font/woff2"},
-    {"path":"assets/fonts/outfit-latin-var.woff2","sha256":"6C18D579FD87C3776BE068B762CBC83FDE3ACB543D49EABD3ADE842EB987E887","bytes":32292,"mime":"font/woff2"},
-    {"path":"assets/rotor-18.webp","sha256":"E2B534529AC62B36A443F8881ED1CE348E097A700BAB001020109390C4CC8A84","bytes":76502,"mime":"image/webp"},
-    {"path":"assets/energia.webp","sha256":"5ED74A4E0B9066E3FE32AA7F05573C8770F9786C85E0CB58B0E215B22EFB56D1","bytes":76810,"mime":"image/webp"},
-    {"path":"assets/seguridad.webp","sha256":"0D723C1471906A930C2E594AA5B8918B0D4CC5CF30165EB169EBBC1D2DB25A7B","bytes":52372,"mime":"image/webp"},
-    {"path":"assets/biomedicina.webp","sha256":"B57252234EB3ACE1022C6E3347C5A0DFCA43CC92A7141C20BD0DC0D54D646B3C","bytes":90338,"mime":"image/webp"},
-    {"path":"assets/percepcion.webp","sha256":"78D6169ACE1EF1836C10F4B5C3A0EB8E72C7DC03ECC04FFE93E8289540281920","bytes":58288,"mime":"image/webp"},
-    {"path":"assets/educacion.webp","sha256":"525CFA3B37D2BF242B71A5F10C278DF390DC82B4BFF5E33DFE844109C51CE267","bytes":121686,"mime":"image/webp"},
-    {"path":"assets/cinematic/hero-day.webp","sha256":"90012B32AF7C880BF0810BF4D43F598511FC54A9D935E6D8EA8EDACF9C0773BF","bytes":101018,"mime":"image/webp"},
-    {"path":"assets/cinematic/hero-white.webp","sha256":"3562978623EEA61359A3C34B097A269DA7DD542787E4A9533B08D604376D6E45","bytes":26674,"mime":"image/webp"},
-    {"path":"assets/cinematic/hero-dusk.webp","sha256":"99413BBF9CBB283AF10AAFB74DFE193E01060BFDAA64309F2261148FC71D5A5F","bytes":115084,"mime":"image/webp"},
-    {"path":"assets/live/torsion-field-v1.webp","sha256":"639AF7FE8434F9D3C0BFBB69237A26F07FBAFAE49EB446BC5385A547FDEBC0D1","bytes":93010,"mime":"image/webp"},
-    {"path":"assets/live/torsion-field-v1.mp4","sha256":"B06CD65133C56662C2A7F7A0B1213B77FE36758DBE267AE023F222596A7DB35B","bytes":1169161,"mime":"video/mp4"},
-    {"path":"assets/live/torsion-hero-nebula-v1.webp","sha256":"45248B00DD1B91A71A29F690DF415881F8EF45F8F8BC7763CE80706313909C7D","bytes":70062,"mime":"image/webp"},
-    {"path":"assets/live/torsion-hero-nebula-v1.mp4","sha256":"9860000A2D8924AC14176F2DBCC5B74F152C994C29A6375AF3BB76FCD5F14966","bytes":330441,"mime":"video/mp4"},
-    {"path":"assets/live/torsion-method-form-v1.webp","sha256":"3553CAD5E4A42AD587E1F19F3F366A1BF48200A61340861DB593BB68025DB64F","bytes":17952,"mime":"image/webp"},
-    {"path":"assets/live/torsion-method-form-v1.mp4","sha256":"5851BA279C43BDBE16AC57F2DA13ECFD726167BCD937CFB6B11571EA4B7420AF","bytes":79465,"mime":"video/mp4"},
-    {"path":"assets/live/torsion-network-v1.webp","sha256":"4D0EF73DFE5A6D3E486A024C158D5F9217547D57666A2B15B80DAD05D25FDF3A","bytes":112570,"mime":"image/webp"},
-    {"path":"assets/live/torsion-network-v1.mp4","sha256":"CFCF8FC7A8BD7161648FAACE9DB10A97767E3D14ACBC7A1D7BA10FC4E7F84349","bytes":1178416,"mime":"video/mp4"},
-    {"path":"assets/live/torsion-field-v2.webp","sha256":"D8B15DDDD72DE99C9E43DA4F78F81C0FF99E3E0179E035EFFEAF185B274CF3C5","bytes":102552,"mime":"image/webp"},
-    {"path":"assets/live/torsion-field-v2.mp4","sha256":"0BD81051BBD084CF6A10931E8F6D67B04807993BB4A479ACA838A558F262DDD3","bytes":2040109,"mime":"video/mp4"},
-    {"path":"assets/live/torsion-network-v2.webp","sha256":"22E24D4EDDAF6DAEE19BFF43F20AB69A56A03D6A1D3F7E2E84D8E54C93F3ADD6","bytes":68048,"mime":"image/webp"},
-    {"path":"assets/live/torsion-network-v2.mp4","sha256":"0FB359B06C56EF7BD7A1BFBC48049474975BBFD1BA31FE1A1FB6773D95ED4A32","bytes":1164610,"mime":"video/mp4"},
-    {"path":"_headers","sha256":"EFF3604B4897A51C50E755D8D6AD9E7919DB74E95C6DD19E2FCC4F5CF8CA4E2A","bytes":435,"mime":"text/plain; charset=utf-8"},
-    {"path":"robots.txt","sha256":"AFC28FC13783BAC59BB7EB5127106CAC4B05F3EF90F525EEAEDEBCC9E5012FCA","bytes":69,"mime":"text/plain; charset=utf-8"},
-    {"path":"sitemap.xml","sha256":"8E303E6158ED3F6F5DD597494F040F2E21B1458361939F8AB147C4B4290ECC8C","bytes":5613,"mime":"application/xml"}
+    {
+      "path": "index.html",
+      "sha256": "06B864B24C0BC573B171FDECED6B7F1A3741C1B1D3E139F1BAC10ED33A317A72",
+      "bytes": 18114,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "404.html",
+      "sha256": "429E5C2531284631313D74CBECD1E15BA35F6D1178428B976B90D3A7364EF048",
+      "bytes": 4191,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/index.html",
+      "sha256": "2DAFE07B49D1BC8D2FF85B5E88922D1F154DFB1035539CF5A80AA946526B5D82",
+      "bytes": 17754,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "postura/index.html",
+      "sha256": "37F3159CAB7F98D6E49153262FDFFAE0C7522C50FC0A9FFCA39D5EA32676477E",
+      "bytes": 7265,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/posture/index.html",
+      "sha256": "AB184E0B5543DDF7FB82E4B13910F7271F4C1B7A72F46307E2D3D544479FB28A",
+      "bytes": 7231,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "ciencia/index.html",
+      "sha256": "4B98D81852C3D0BDBA3C744105F208CAF4CF54FA709C0E4239E8DEAA5F7E6A6B",
+      "bytes": 12439,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/science/index.html",
+      "sha256": "23B74B7784A98066BE7E5FB3DE3A91ADFBB18020BABF330C041821ECF8880DAE",
+      "bytes": 10754,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "portafolio/index.html",
+      "sha256": "5D8A59F5CD49067A1B8509C76948626C76E90B1B5EC7FC6B0EA9921D0102D346",
+      "bytes": 10637,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/portfolio/index.html",
+      "sha256": "E03D20674790150BC664EB072BDFFFB0992251B66A710F8068424F1E324E458A",
+      "bytes": 10070,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "evidencia/index.html",
+      "sha256": "557BBE2EE678EDF7C90038F0A8BB8CF4FB8ED3E7CD32F277F329C9883E9A1E45",
+      "bytes": 13776,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/evidence/index.html",
+      "sha256": "E49D539B5B959347BD41D3A2965FD7B34443E871C82D88D861F3EE4F70046A3C",
+      "bytes": 13411,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "contacto/index.html",
+      "sha256": "27C77068AD97F19DBBED70F66BCB36CE383793D97C09C7D39F3CAE47888915D2",
+      "bytes": 7344,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/contact/index.html",
+      "sha256": "CB7A62FA1911FF378363E8A5A39AB44D2B026EE0311E2D600021437006E1DE5E",
+      "bytes": 7257,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "privacidad/index.html",
+      "sha256": "A9A2E5B5216F7FDFA381D62E8014A676FDD95D77CA7B1C9227902C1936C5427F",
+      "bytes": 13642,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/privacy/index.html",
+      "sha256": "02F909F21C3534A6E166AC3DF063F2677E3F957CC85019F7BA918B25CA917236",
+      "bytes": 13058,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "proyectos/rotor-18/index.html",
+      "sha256": "BE0CF7BA1017F5FD50945D0331F970835701DE25D6F32092F7839AD41D02FB85",
+      "bytes": 7948,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "proyectos/energia/index.html",
+      "sha256": "DFCE2F9A43F8961C93EBC7FE6C40A64B44E6755B605BE82B65F6EF7DF6C57DFD",
+      "bytes": 8762,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "proyectos/seguridad/index.html",
+      "sha256": "9F5D285A52D6DAA50B724DFDD026E81E1F92C67F70C8B709127617E39679825B",
+      "bytes": 8056,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "proyectos/biomedicina/index.html",
+      "sha256": "68496556193046DD0DFFCBC030978245478E2E6E6BDEF12A7F1713A60F09F6D5",
+      "bytes": 7528,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "proyectos/percepcion/index.html",
+      "sha256": "2722B37F41BC83B0B7370AAB65828E2F27CCB310FF1BA09363979C2A5B3EDE68",
+      "bytes": 7559,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "proyectos/educacion/index.html",
+      "sha256": "3D75C37F8D453A10DDADB68356CAEB8B4321DBA2E61C3F7EBA02F37B3EC0491C",
+      "bytes": 10562,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/proyectos/rotor-18/index.html",
+      "sha256": "AE016A55D1019752ED506CFECA995233D138DF504027D110C65CE81F4C0527C4",
+      "bytes": 7754,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/proyectos/energia/index.html",
+      "sha256": "12D37DAF6DF794D4FB61C1F9E5049CCBD1646B3898B46A7B870B861BF74D2B84",
+      "bytes": 8524,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/proyectos/seguridad/index.html",
+      "sha256": "38A78A777766841CA4A61196D7062EDFDA5BF45F73F0A11066E1AE6CA92D0E5D",
+      "bytes": 7794,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/proyectos/biomedicina/index.html",
+      "sha256": "14B0E9E6B06C5294F2735DA0B2F439AA74D5C9606F687F8DDE0670021F34314C",
+      "bytes": 7390,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/proyectos/percepcion/index.html",
+      "sha256": "F2A14086A620382C99C5CC3BD5B5014885A581A04B841A4643D26A60D94192A2",
+      "bytes": 7452,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/proyectos/educacion/index.html",
+      "sha256": "40AAEE7BCF94514DDC7A8AA945D5395223CC5AA56FADCB6E94764666852C1D5D",
+      "bytes": 10193,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "assets/proyecto.css",
+      "sha256": "AC55CE32181E1248F7E52669B2F36C3AD398FF0EBBED5F5AC170E9DB48061C69",
+      "bytes": 4825,
+      "mime": "text/css; charset=utf-8"
+    },
+    {
+      "path": "assets/footer-links.css",
+      "sha256": "334B743DD0AD83291714F41862A54385B5A057F74D5F033F87BB879E74DABBCB",
+      "bytes": 4042,
+      "mime": "text/css; charset=utf-8"
+    },
+    {
+      "path": "assets/home-v3.css",
+      "sha256": "AE615AFCC66555B960B5D767C5C65C357AB6CF83C73B897AB551524546F3C18A",
+      "bytes": 19602,
+      "mime": "text/css; charset=utf-8"
+    },
+    {
+      "path": "assets/home-v3.js",
+      "sha256": "9E87946801CD0F0992597C8FE7EF75E6AF623AF0DEB4ED18E6ED41616369E54B",
+      "bytes": 3091,
+      "mime": "application/javascript"
+    },
+    {
+      "path": "assets/home-v4.css",
+      "sha256": "3D050F8C428F3B270041951796E7670CBCCE7C2916492F605A2294D61B5287F7",
+      "bytes": 6910,
+      "mime": "text/css; charset=utf-8"
+    },
+    {
+      "path": "assets/home-v4-finish.css",
+      "sha256": "2D0408F127F9350A91C108F70917645CAF13B9FD909D5B5C8EEDD87FE73D0B9E",
+      "bytes": 14254,
+      "mime": "text/css; charset=utf-8"
+    },
+    {
+      "path": "assets/home-v4.js",
+      "sha256": "B824698C466FF5D4DA57D5378265079FEB330B22E1A1D22BAA90D8552A516BEA",
+      "bytes": 15308,
+      "mime": "application/javascript"
+    },
+    {
+      "path": "assets/reveal.js",
+      "sha256": "2A59A3EA15CC56714E67DD5BEB1E1CBAAC8DD0543DB49A50C450492B828C0615",
+      "bytes": 516,
+      "mime": "application/javascript"
+    },
+    {
+      "path": "assets/reveal-noscript.css",
+      "sha256": "4995E757230DE84A9F08D1771294E27FD8FB0F7F9103AB51F823FCFCD6D0C048",
+      "bytes": 34,
+      "mime": "text/css; charset=utf-8"
+    },
+    {
+      "path": "assets/science-v4.css",
+      "sha256": "496D35E7C2F5A150B3249B309CE95A182A1763DC889C036FAB39BBDFAA2D3085",
+      "bytes": 6866,
+      "mime": "text/css; charset=utf-8"
+    },
+    {
+      "path": "assets/portfolio-v4.css",
+      "sha256": "2C0C1EDAEDF26F2BB0C0FFFE215A842152CD312CFC77CB68C5866780863E1C88",
+      "bytes": 6000,
+      "mime": "text/css; charset=utf-8"
+    },
+    {
+      "path": "assets/logo-torsion.svg",
+      "sha256": "9E3C6B386BA41C0FBD7B665DC9ABA636454B05BB08F0D7B215BC538D95AAFDC2",
+      "bytes": 1796,
+      "mime": "image/svg+xml"
+    },
+    {
+      "path": "assets/hero.webp",
+      "sha256": "9194137C72F8AE9ACB027E82BC879218902E10107695479B3DA19AA8623C8A6F",
+      "bytes": 294754,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/terrascope.webp",
+      "sha256": "97163DB834354086B7B77727E4535F1C460BCDEFF7D032389A50C7A5243D3B91",
+      "bytes": 273186,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/og-image.png",
+      "sha256": "92EA10CCF8AA13E05CB03F6408E5656302048D485856A2C4D9323C7BD0B88A87",
+      "bytes": 674499,
+      "mime": "image/png"
+    },
+    {
+      "path": "assets/fonts/inter-latin-var.woff2",
+      "sha256": "3100E775E8616CD2611BEECFA23A4263D7037586789B43F035236A2E6FBD4C62",
+      "bytes": 48256,
+      "mime": "font/woff2"
+    },
+    {
+      "path": "assets/fonts/outfit-latin-var.woff2",
+      "sha256": "6C18D579FD87C3776BE068B762CBC83FDE3ACB543D49EABD3ADE842EB987E887",
+      "bytes": 32292,
+      "mime": "font/woff2"
+    },
+    {
+      "path": "assets/rotor-18.webp",
+      "sha256": "E2B534529AC62B36A443F8881ED1CE348E097A700BAB001020109390C4CC8A84",
+      "bytes": 76502,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/energia.webp",
+      "sha256": "5ED74A4E0B9066E3FE32AA7F05573C8770F9786C85E0CB58B0E215B22EFB56D1",
+      "bytes": 76810,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/seguridad.webp",
+      "sha256": "0D723C1471906A930C2E594AA5B8918B0D4CC5CF30165EB169EBBC1D2DB25A7B",
+      "bytes": 52372,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/biomedicina.webp",
+      "sha256": "B57252234EB3ACE1022C6E3347C5A0DFCA43CC92A7141C20BD0DC0D54D646B3C",
+      "bytes": 90338,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/percepcion.webp",
+      "sha256": "78D6169ACE1EF1836C10F4B5C3A0EB8E72C7DC03ECC04FFE93E8289540281920",
+      "bytes": 58288,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/educacion.webp",
+      "sha256": "525CFA3B37D2BF242B71A5F10C278DF390DC82B4BFF5E33DFE844109C51CE267",
+      "bytes": 121686,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/cinematic/hero-day.webp",
+      "sha256": "90012B32AF7C880BF0810BF4D43F598511FC54A9D935E6D8EA8EDACF9C0773BF",
+      "bytes": 101018,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/cinematic/hero-white.webp",
+      "sha256": "3562978623EEA61359A3C34B097A269DA7DD542787E4A9533B08D604376D6E45",
+      "bytes": 26674,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/cinematic/hero-dusk.webp",
+      "sha256": "99413BBF9CBB283AF10AAFB74DFE193E01060BFDAA64309F2261148FC71D5A5F",
+      "bytes": 115084,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/live/torsion-field-v1.webp",
+      "sha256": "639AF7FE8434F9D3C0BFBB69237A26F07FBAFAE49EB446BC5385A547FDEBC0D1",
+      "bytes": 93010,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/live/torsion-field-v1.mp4",
+      "sha256": "B06CD65133C56662C2A7F7A0B1213B77FE36758DBE267AE023F222596A7DB35B",
+      "bytes": 1169161,
+      "mime": "video/mp4"
+    },
+    {
+      "path": "assets/live/torsion-hero-nebula-v1.webp",
+      "sha256": "45248B00DD1B91A71A29F690DF415881F8EF45F8F8BC7763CE80706313909C7D",
+      "bytes": 70062,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/live/torsion-hero-nebula-v1.mp4",
+      "sha256": "9860000A2D8924AC14176F2DBCC5B74F152C994C29A6375AF3BB76FCD5F14966",
+      "bytes": 330441,
+      "mime": "video/mp4"
+    },
+    {
+      "path": "assets/live/torsion-method-form-v1.webp",
+      "sha256": "3553CAD5E4A42AD587E1F19F3F366A1BF48200A61340861DB593BB68025DB64F",
+      "bytes": 17952,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/live/torsion-method-form-v1.mp4",
+      "sha256": "5851BA279C43BDBE16AC57F2DA13ECFD726167BCD937CFB6B11571EA4B7420AF",
+      "bytes": 79465,
+      "mime": "video/mp4"
+    },
+    {
+      "path": "assets/live/torsion-network-v1.webp",
+      "sha256": "4D0EF73DFE5A6D3E486A024C158D5F9217547D57666A2B15B80DAD05D25FDF3A",
+      "bytes": 112570,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/live/torsion-network-v1.mp4",
+      "sha256": "CFCF8FC7A8BD7161648FAACE9DB10A97767E3D14ACBC7A1D7BA10FC4E7F84349",
+      "bytes": 1178416,
+      "mime": "video/mp4"
+    },
+    {
+      "path": "assets/live/torsion-field-v2.webp",
+      "sha256": "D8B15DDDD72DE99C9E43DA4F78F81C0FF99E3E0179E035EFFEAF185B274CF3C5",
+      "bytes": 102552,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/live/torsion-field-v2.mp4",
+      "sha256": "0BD81051BBD084CF6A10931E8F6D67B04807993BB4A479ACA838A558F262DDD3",
+      "bytes": 2040109,
+      "mime": "video/mp4"
+    },
+    {
+      "path": "assets/live/torsion-network-v2.webp",
+      "sha256": "22E24D4EDDAF6DAEE19BFF43F20AB69A56A03D6A1D3F7E2E84D8E54C93F3ADD6",
+      "bytes": 68048,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/live/torsion-network-v2.mp4",
+      "sha256": "0FB359B06C56EF7BD7A1BFBC48049474975BBFD1BA31FE1A1FB6773D95ED4A32",
+      "bytes": 1164610,
+      "mime": "video/mp4"
+    },
+    {
+      "path": "_headers",
+      "sha256": "EFF3604B4897A51C50E755D8D6AD9E7919DB74E95C6DD19E2FCC4F5CF8CA4E2A",
+      "bytes": 435,
+      "mime": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "robots.txt",
+      "sha256": "AFC28FC13783BAC59BB7EB5127106CAC4B05F3EF90F525EEAEDEBCC9E5012FCA",
+      "bytes": 69,
+      "mime": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "sitemap.xml",
+      "sha256": "8E303E6158ED3F6F5DD597494F040F2E21B1458361939F8AB147C4B4290ECC8C",
+      "bytes": 5613,
+      "mime": "application/xml"
+    }
   ]
 }
