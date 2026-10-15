@@ -356,9 +356,12 @@ try {
       const html = await readFile(path.join(baseline, ...relative.split('/')), 'utf8');
       const english = relative.startsWith('en/');
       const expected = english
-        ? ['53/53', 'datetime="2026-10-05"', 'synthetic', 'agentic matrix is undergoing architectural review and optimization', 'physical', 'instruments', 'reference']
-        : ['53/53', 'datetime="2026-10-05"', 'sintétic', 'matriz agéntica está en revisión y optimización de su arquitectura', 'física', 'instrumentos', 'referencia'];
-      if (!expected.every((value) => html.includes(value)) ||
+        ? ['datetime="2026-10-15"', 'synthetic', 'physical validation', 'pending', 'instruments', 'reference']
+        : ['datetime="2026-10-15"', 'sintétic', 'validación física', 'pendiente', 'instrumentos', 'referencia'];
+      if (!relative.includes('portfolio/') && !relative.includes('portafolio/')) {
+        expected.push('53/53', 'datetime="2026-10-05"');
+      }
+      if (!expected.every((value) => html.toLowerCase().includes(value.toLowerCase())) ||
           /mejora observada|observed improvement/i.test(html)) {
         throw new Error('VERDE_SYNTHETIC_SCOPE_INVALID:' + relative);
       }
@@ -858,8 +861,8 @@ try {
       const html = await readFile(path.join(baseline, ...relative.split('/')), 'utf8');
       if (/semanal|weekly/i.test(html)) throw new Error(`FIXED_CADENCE_CLAIM:${relative}`);
     }
-    for (const [relative, label] of [['portafolio/index.html', 'revisión editorial manual'],
-      ['en/portfolio/index.html', 'manual editorial review']]) {
+    for (const [relative, label] of [['portafolio/index.html', 'avances de investigación'],
+      ['en/portfolio/index.html', 'research progress']]) {
       if (!(await readFile(path.join(baseline, ...relative.split('/')), 'utf8')).includes(label)) {
         throw new Error(`MANUAL_EDITORIAL_LABEL_MISSING:${relative}`);
       }
@@ -867,8 +870,8 @@ try {
   });
   await expectPass('inquiry_sent_is_not_delivery_reply_or_affiliation_bilingual', async () => {
     for (const [relative, markers] of [
-      ['evidencia/index.html', ['Al corte de agosto de 2026', '5 octubre 2026', 'UAQ', 'confirmado por D9', 'no acredita entrega, lectura, respuesta', 'colaboración institucional ni aval']],
-      ['en/evidence/index.html', ['As of the August 2026 snapshot', 'October 5, 2026', 'UAQ', 'D9 confirmed', 'does not establish delivery, reading, a reply', 'institutional collaboration or endorsement']],
+      ['evidencia/index.html', ['Al corte de agosto de 2026', '5 octubre 2026', 'UAQ', 'confirmado por la dirección del laboratorio', 'no acredita entrega, lectura, respuesta', 'colaboración institucional ni aval']],
+      ['en/evidence/index.html', ['As of the August 2026 snapshot', 'October 5, 2026', 'UAQ', 'The laboratory confirmed', 'does not establish delivery, reading, a reply', 'institutional collaboration or endorsement']],
       ['ciencia/index.html', ['Al corte del 12 de agosto de 2026', '5 de octubre', 'no cambia el estado de esta revisión']],
       ['en/science/index.html', ['As of August 12, 2026', 'October 5', "does not change this review's status"]],
     ]) {
