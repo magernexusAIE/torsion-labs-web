@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Distributed energy — Torsión</title>
-<meta name="description" content="Software and models for researching solar-energy management close to where energy is produced, with local control and less reliance on connectivity." />
+<title>VERDE · Distributed energy — Torsión</title>
+<meta name="description" content="Research into software and models for managing solar energy close to where it is produced, with local control and less reliance on connectivity." />
 <link rel="canonical" href="https://torsion-labs.com/en/proyectos/energia/" />
 <link rel="alternate" hreflang="es" href="https://torsion-labs.com/proyectos/energia/" />
 <link rel="alternate" hreflang="en" href="https://torsion-labs.com/en/proyectos/energia/" />
@@ -24,22 +24,16 @@
 <main>
   <section class="hero-p"><div class="wrap">
     <span class="chip">Local development · Energy</span>
-    <h1>Distributed energy</h1>
-    <p class="lead">Software and models for researching solar-energy management close to where energy is produced, with local control and less reliance on connectivity.</p>
+    <h1>VERDE · Distributed energy</h1>
+    <p class="lead">Research into software and models for managing solar energy close to where it is produced, with local control and less reliance on connectivity.</p>
   </div></section>
 
   <section class="bloque"><div class="wrap">
     <h2>What it is</h2>
-    <p>The project explores the Torsión thesis in the energy domain through a <strong>computational model
-      of a sovereign edge node</strong> with adaptive maximum-power tracking (MPPT). Its thermal, state,
-      and coordination rules are checked through formulas and local tests; measurement on a panel and
-      hardware belongs to the next experimental milestone.</p>
-    <p>The deployment goal: micro-grids that dignify the energy autonomy of communities and remote
-      operations, with accessible hardware and local control of processing.</p>
-    <p><strong>Current stage:</strong> local software and a thermal record tested with synthetic data. 
-      The physical pilot has not yet been run.</p>
-    <p><strong>Purpose:</strong> Support energy autonomy for communities and remote operations through technology that can be evaluated in real conditions.</p>
-    <p><strong>Next stage:</strong> confirm the test bench and instruments, an independent thermal reference, uncertainty, sampling, acceptance criteria, and an owner before acquiring data.</p>
+    <p>VERDE develops computational models for maximum power point tracking (MPPT), thermal behavior and node coordination. It aims to provide a technical basis for studying locally controlled solar systems for communities and remote operations.</p>
+    <p><strong>Current stage:</strong> Software prototypes and a thermal record tested with synthetic data. Comparison with an independent reference, physical validation and field testing remain pending.</p>
+    <p><strong>Purpose:</strong> Expand solar-system autonomy through control and evaluation tools that can be assessed under real conditions.</p>
+    <p><strong>Next stage:</strong> Prepare the test bench, instruments, independent thermal reference and measurement protocol, including sampling, uncertainty and acceptance criteria.</p>
   </div></section>
 
   <section class="bloque"><div class="wrap">
@@ -47,12 +41,14 @@
     <ul class="updates">
       <li class="reveal" data-progress="verde"><span class="badge">Distributed energy · Applied research</span><div class="fecha"><time datetime="2026-10-15">October 15, 2026</time></div><h3>From thermal models to preparing bench tests</h3><p>VERDE aims to support the autonomy of solar systems through local control and thermal-behavior models. Prototypes have been tested with simulated scenarios, and a comparison with an independent reference is being prepared. Physical validation and field performance remain pending; instruments, measurement conditions and uncertainty still need to be defined.</p></li>
       <li class="reveal">
-        <span class="badge">Computational model</span>
-        <div class="fecha">July 2026 · week 1</div>
-        <h3>The thermal model changed by ~16% relative to the previous formula</h3>
-        <p>The local technical review re-derived the thermal rule for maximum-power tracking. In the numerical
-          scenario at 35 °C, the output differs by ~16% from the previous formula; local tests verify
-          software behavior, not a panel or edge-hardware measurement.</p>
+        <span class="badge">Synthetic tests · no physical validation</span>
+        <div class="fecha"><time datetime="2026-10-05">October 5, 2026</time></div>
+        <h3>Thermal record and reproducible passive assembly</h3>
+        <p>The focused record-and-assembly suite passed 53/53 tests with synthetic data. It checks
+          units, provenance, timing, quality, uncertainty, and software blocks; it establishes neither
+          measured energy efficiency nor the physical independence of the thermal reference.
+           A test bench, instruments, an independent reference,
+          sampling, and an owner are still needed for the physical comparison.</p>
       </li>
       <li class="reveal">
         <span class="badge">Technical update</span>
@@ -63,14 +59,12 @@
           it does not physically validate the model or close the entire energy integration.</p>
       </li>
       <li class="reveal">
-        <span class="badge">Synthetic tests · no physical validation</span>
-        <div class="fecha"><time datetime="2026-10-05">October 5, 2026</time></div>
-        <h3>Thermal record and reproducible passive assembly</h3>
-        <p>The focused record-and-assembly suite passed 53/53 tests with synthetic data. It checks
-          units, provenance, timing, quality, uncertainty, and software blocks; it establishes neither
-          measured energy efficiency nor the physical independence of the thermal reference.
-           A test bench, instruments, an independent reference,
-          sampling, and an owner are still needed for the physical comparison.</p>
+        <span class="badge">Computational model</span>
+        <div class="fecha">July 2026 · week 1</div>
+        <h3>The thermal model changed by ~16% relative to the previous formula</h3>
+        <p>The local technical review re-derived the thermal rule for maximum-power tracking. In the numerical
+          scenario at 35 °C, the output differs by ~16% from the previous formula; local tests verify
+          software behavior, not a panel or edge-hardware measurement.</p>
       </li>
     </ul>
     <p class="nota-metodo">Every update distinguishes tested software, computational models, documentary

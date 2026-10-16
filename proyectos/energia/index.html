@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Energía distribuida — Torsión</title>
-<meta name="description" content="Software y modelos para investigar cómo gestionar energía solar cerca de donde se produce, con control local y menor dependencia de la conectividad." />
+<title>VERDE · Energía distribuida — Torsión</title>
+<meta name="description" content="Investigación en software y modelos para gestionar energía solar cerca de donde se produce, con control local y menor dependencia de la conectividad." />
 <link rel="canonical" href="https://torsion-labs.com/proyectos/energia/" />
 <link rel="alternate" hreflang="es" href="https://torsion-labs.com/proyectos/energia/" />
 <link rel="alternate" hreflang="en" href="https://torsion-labs.com/en/proyectos/energia/" />
@@ -24,22 +24,16 @@
 <main>
   <section class="hero-p"><div class="wrap">
     <span class="chip">Desarrollo local · Energía</span>
-    <h1>Energía distribuida</h1>
-    <p class="lead">Software y modelos para investigar cómo gestionar energía solar cerca de donde se produce, con control local y menor dependencia de la conectividad.</p>
+    <h1>VERDE · Energía distribuida</h1>
+    <p class="lead">Investigación en software y modelos para gestionar energía solar cerca de donde se produce, con control local y menor dependencia de la conectividad.</p>
   </div></section>
 
   <section class="bloque"><div class="wrap">
     <h2>Qué es</h2>
-    <p>El proyecto explora la tesis de Torsión en el dominio energético mediante un <strong>modelo
-      computacional de nodo de borde soberano</strong> con seguimiento adaptativo de máxima potencia
-      (MPPT). Sus reglas térmicas, de estado y coordinación se contrastan con fórmulas y pruebas locales;
-      la medición sobre panel y hardware pertenece al siguiente hito experimental.</p>
-    <p>El objetivo de despliegue: micro-redes que dignifiquen la autonomía energética de comunidades y
-      operaciones remotas, con hardware accesible y control local del procesamiento.</p>
-    <p><strong>Etapa actual:</strong> software local y un registro térmico probado con datos sintéticos. 
-      El piloto físico todavía no se ha ejecutado.</p>
-    <p><strong>Propósito:</strong> Apoyar la autonomía energética de comunidades y operaciones remotas mediante tecnología que pueda evaluarse en condiciones reales.</p>
-    <p><strong>Próxima etapa:</strong> confirmar banco e instrumentos, una referencia térmica independiente, incertidumbre, muestreo, criterios de aceptación y responsable antes de adquirir datos.</p>
+    <p>VERDE desarrolla modelos computacionales de seguimiento de máxima potencia (MPPT), comportamiento térmico y coordinación de nodos. Busca ofrecer una base técnica para estudiar sistemas solares con control local, orientados a comunidades y operaciones remotas.</p>
+    <p><strong>Etapa actual:</strong> Prototipos de software y registro térmico ensayados con datos sintéticos. El contraste con una referencia independiente, la validación física y las pruebas en campo siguen pendientes.</p>
+    <p><strong>Propósito:</strong> Ampliar la autonomía de los sistemas solares mediante herramientas de control y evaluación que puedan contrastarse en condiciones reales.</p>
+    <p><strong>Próxima etapa:</strong> Preparar el banco, los instrumentos, la referencia térmica independiente y el protocolo de medición, incluidos el muestreo, la incertidumbre y los criterios de aceptación.</p>
   </div></section>
 
   <section class="bloque"><div class="wrap">
@@ -47,12 +41,14 @@
     <ul class="updates">
       <li class="reveal" data-progress="verde"><span class="badge">Energía distribuida · Investigación aplicada</span><div class="fecha"><time datetime="2026-10-15">15 octubre 2026</time></div><h3>Del modelo térmico a la preparación de pruebas en banco</h3><p>VERDE busca ampliar la autonomía de sistemas solares mediante control local y modelos de comportamiento térmico. Los prototipos se han ensayado con escenarios simulados y se prepara una comparación con una referencia independiente. La validación física y el desempeño en campo siguen pendientes; todavía deben definirse instrumentos, condiciones de medición e incertidumbre.</p></li>
       <li class="reveal">
-        <span class="badge">Modelo computacional</span>
-        <div class="fecha">Julio 2026 · semana 1</div>
-        <h3>El modelo térmico cambió ~16% frente a la fórmula anterior</h3>
-        <p>La revisión técnica local re-derivó la regla térmica del seguimiento de máxima potencia. En el
-          escenario numérico a 35 °C, la salida difiere ~16% de la fórmula anterior; las pruebas locales
-          verifican el comportamiento del software, no una medición de panel ni de hardware de borde.</p>
+        <span class="badge">Pruebas sintéticas · no validación física</span>
+        <div class="fecha"><time datetime="2026-10-05">5 de octubre de 2026</time></div>
+        <h3>Registro térmico y ensamblaje pasivo reproducible</h3>
+        <p>El conjunto acotado de registro y ensamblaje superó 53/53 pruebas con datos sintéticos.
+          Verifica unidades, procedencia, tiempos, calidad, incertidumbre y bloqueos del software;
+          no acredita eficiencia energética medida ni independencia física de la referencia térmica.
+           Faltan banco, instrumentos, referencia independiente,
+          muestreo y responsable para el contraste físico.</p>
       </li>
       <li class="reveal">
         <span class="badge">Actualización técnica</span>
@@ -63,14 +59,12 @@
           el antecedente histórico: no valida físicamente el modelo ni cierra toda la integración energética.</p>
       </li>
       <li class="reveal">
-        <span class="badge">Pruebas sintéticas · no validación física</span>
-        <div class="fecha"><time datetime="2026-10-05">5 de octubre de 2026</time></div>
-        <h3>Registro térmico y ensamblaje pasivo reproducible</h3>
-        <p>El conjunto acotado de registro y ensamblaje superó 53/53 pruebas con datos sintéticos.
-          Verifica unidades, procedencia, tiempos, calidad, incertidumbre y bloqueos del software;
-          no acredita eficiencia energética medida ni independencia física de la referencia térmica.
-           Faltan banco, instrumentos, referencia independiente,
-          muestreo y responsable para el contraste físico.</p>
+        <span class="badge">Modelo computacional</span>
+        <div class="fecha">Julio 2026 · semana 1</div>
+        <h3>El modelo térmico cambió ~16% frente a la fórmula anterior</h3>
+        <p>La revisión técnica local re-derivó la regla térmica del seguimiento de máxima potencia. En el
+          escenario numérico a 35 °C, la salida difiere ~16% de la fórmula anterior; las pruebas locales
+          verifican el comportamiento del software, no una medición de panel ni de hardware de borde.</p>
       </li>
     </ul>
     <p class="nota-metodo">Cada actualización distingue entre software probado, modelo computacional,
