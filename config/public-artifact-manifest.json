@@ -47,14 +47,14 @@
     },
     {
       "path": "portafolio/index.html",
-      "sha256": "5D8A59F5CD49067A1B8509C76948626C76E90B1B5EC7FC6B0EA9921D0102D346",
-      "bytes": 10637,
+      "sha256": "B10D4B09B485CC9F7EC3079B9A9DE451B739B7741159F03853F3E63CFA7AD83B",
+      "bytes": 11017,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "en/portfolio/index.html",
-      "sha256": "E03D20674790150BC664EB072BDFFFB0992251B66A710F8068424F1E324E458A",
-      "bytes": 10070,
+      "sha256": "FC9D860E5E25FE5842B1BF458BE12EADBAF28136AA48EEDD962D0192D1B50E1B",
+      "bytes": 10565,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -95,74 +95,74 @@
     },
     {
       "path": "proyectos/rotor-18/index.html",
-      "sha256": "BE0CF7BA1017F5FD50945D0331F970835701DE25D6F32092F7839AD41D02FB85",
-      "bytes": 7948,
+      "sha256": "8FCE2C06E5C9B88331E74A09B22144DCB8310FC053CF00234AD4AF8DD0D4CF6E",
+      "bytes": 8385,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "proyectos/energia/index.html",
-      "sha256": "DFCE2F9A43F8961C93EBC7FE6C40A64B44E6755B605BE82B65F6EF7DF6C57DFD",
-      "bytes": 8762,
+      "sha256": "BE3CBA9707AABD7F8D6BBF92EDE4F52EAA69F954ED598123454CB5CA548EBD35",
+      "bytes": 8549,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "proyectos/seguridad/index.html",
-      "sha256": "9F5D285A52D6DAA50B724DFDD026E81E1F92C67F70C8B709127617E39679825B",
-      "bytes": 8056,
+      "sha256": "6AA220F6FD6002E0B66310267A4533630D95DD9B53472E1C3AB4501E1AC1FE45",
+      "bytes": 7863,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "proyectos/biomedicina/index.html",
-      "sha256": "68496556193046DD0DFFCBC030978245478E2E6E6BDEF12A7F1713A60F09F6D5",
-      "bytes": 7528,
-      "mime": "text/html; charset=utf-8"
-    },
-    {
-      "path": "proyectos/percepcion/index.html",
-      "sha256": "2722B37F41BC83B0B7370AAB65828E2F27CCB310FF1BA09363979C2A5B3EDE68",
-      "bytes": 7559,
-      "mime": "text/html; charset=utf-8"
-    },
-    {
-      "path": "proyectos/educacion/index.html",
-      "sha256": "3D75C37F8D453A10DDADB68356CAEB8B4321DBA2E61C3F7EBA02F37B3EC0491C",
-      "bytes": 10562,
-      "mime": "text/html; charset=utf-8"
-    },
-    {
-      "path": "en/proyectos/rotor-18/index.html",
-      "sha256": "AE016A55D1019752ED506CFECA995233D138DF504027D110C65CE81F4C0527C4",
-      "bytes": 7754,
-      "mime": "text/html; charset=utf-8"
-    },
-    {
-      "path": "en/proyectos/energia/index.html",
-      "sha256": "12D37DAF6DF794D4FB61C1F9E5049CCBD1646B3898B46A7B870B861BF74D2B84",
-      "bytes": 8524,
-      "mime": "text/html; charset=utf-8"
-    },
-    {
-      "path": "en/proyectos/seguridad/index.html",
-      "sha256": "38A78A777766841CA4A61196D7062EDFDA5BF45F73F0A11066E1AE6CA92D0E5D",
+      "sha256": "05F7A6ECD4EABEE963BA8BBBB510FA0BFD44F7F5741632C441857E06E0E4330D",
       "bytes": 7794,
       "mime": "text/html; charset=utf-8"
     },
     {
+      "path": "proyectos/percepcion/index.html",
+      "sha256": "914C750DA9449D92DCA4CD8B80D36C413FA95ED214541EC66A3C45F09A100828",
+      "bytes": 7751,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "proyectos/educacion/index.html",
+      "sha256": "AE87F7D0522FBDF198BB82ACD2CB67CE2F80A95F1086DD6D162D60A9E4EE836E",
+      "bytes": 10186,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/proyectos/rotor-18/index.html",
+      "sha256": "892B7E84A3B38B663798AA89E003EC8E8151BE37D82B9B46508342AC606FBF9D",
+      "bytes": 8173,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/proyectos/energia/index.html",
+      "sha256": "E5A070FB2AA6B0C70A6E1BFD6FA3BCF261CD0DC393F9AA38AF33B7A6163C1DB2",
+      "bytes": 8264,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/proyectos/seguridad/index.html",
+      "sha256": "9A81D1BB9A161D95DF0AF38576E255234F512A3290771769C630EA5E9249DD9F",
+      "bytes": 7603,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
       "path": "en/proyectos/biomedicina/index.html",
-      "sha256": "14B0E9E6B06C5294F2735DA0B2F439AA74D5C9606F687F8DDE0670021F34314C",
-      "bytes": 7390,
+      "sha256": "AAC9231D254ACAD5AEC757D154A1ACDC95FED8A41C6136DB90E177DA698B231C",
+      "bytes": 7604,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "en/proyectos/percepcion/index.html",
-      "sha256": "F2A14086A620382C99C5CC3BD5B5014885A581A04B841A4643D26A60D94192A2",
-      "bytes": 7452,
+      "sha256": "C37306C482162B6C7D734B29DB74FA969CB05FB6F9DD4DD4123A6F8C5FFAE798",
+      "bytes": 7431,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "en/proyectos/educacion/index.html",
-      "sha256": "40AAEE7BCF94514DDC7A8AA945D5395223CC5AA56FADCB6E94764666852C1D5D",
-      "bytes": 10193,
+      "sha256": "DBF0BE9EC29B1210311E050CC256F38DCD1DB90942870542F89C2725D40521E9",
+      "bytes": 9769,
       "mime": "text/html; charset=utf-8"
     },
     {
