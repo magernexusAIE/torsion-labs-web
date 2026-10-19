@@ -47,14 +47,14 @@
     },
     {
       "path": "portafolio/index.html",
-      "sha256": "B10D4B09B485CC9F7EC3079B9A9DE451B739B7741159F03853F3E63CFA7AD83B",
-      "bytes": 11017,
+      "sha256": "1B07A8053F2D7E6E9B56416247F0325CAD582C62ECB968A7ADC73ECB07D34CB0",
+      "bytes": 11081,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "en/portfolio/index.html",
-      "sha256": "FC9D860E5E25FE5842B1BF458BE12EADBAF28136AA48EEDD962D0192D1B50E1B",
-      "bytes": 10565,
+      "sha256": "BE22AEA2AB3759AF8D2436F35967DDF4CA996F3B33DF08541B51A79509CD29B0",
+      "bytes": 10638,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -107,8 +107,8 @@
     },
     {
       "path": "proyectos/seguridad/index.html",
-      "sha256": "6AA220F6FD6002E0B66310267A4533630D95DD9B53472E1C3AB4501E1AC1FE45",
-      "bytes": 7863,
+      "sha256": "9A16175EC94A36FF4E5CC02EC0D327F5C8AF025653774D61F49A6E4BFEAE4B9D",
+      "bytes": 10101,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -143,8 +143,8 @@
     },
     {
       "path": "en/proyectos/seguridad/index.html",
-      "sha256": "9A81D1BB9A161D95DF0AF38576E255234F512A3290771769C630EA5E9249DD9F",
-      "bytes": 7603,
+      "sha256": "F03FC313A42B1A2F6E2C477E93D920538013F11741A9B518EEBA9B33C8B162DD",
+      "bytes": 9749,
       "mime": "text/html; charset=utf-8"
     },
     {
