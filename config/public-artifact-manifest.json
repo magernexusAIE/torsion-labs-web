@@ -47,14 +47,14 @@
     },
     {
       "path": "portafolio/index.html",
-      "sha256": "1B07A8053F2D7E6E9B56416247F0325CAD582C62ECB968A7ADC73ECB07D34CB0",
-      "bytes": 11081,
+      "sha256": "7B5C784CA26D389441BE60A3C8103723A8AF28EB58DA962074F2E3F913DA272E",
+      "bytes": 11099,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "en/portfolio/index.html",
-      "sha256": "BE22AEA2AB3759AF8D2436F35967DDF4CA996F3B33DF08541B51A79509CD29B0",
-      "bytes": 10638,
+      "sha256": "F823A1252BA0DC2EB768581131F6BD145FAF7E41478515FBB6CD1DC651B16C67",
+      "bytes": 10674,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -125,8 +125,8 @@
     },
     {
       "path": "proyectos/educacion/index.html",
-      "sha256": "AE87F7D0522FBDF198BB82ACD2CB67CE2F80A95F1086DD6D162D60A9E4EE836E",
-      "bytes": 10186,
+      "sha256": "9CD18B451F24A50B7AB680F696D70308814238EF5437456FAE4D690911CE5882",
+      "bytes": 11589,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -161,8 +161,8 @@
     },
     {
       "path": "en/proyectos/educacion/index.html",
-      "sha256": "DBF0BE9EC29B1210311E050CC256F38DCD1DB90942870542F89C2725D40521E9",
-      "bytes": 9769,
+      "sha256": "8F3EEF87D480F2BB87DAC59A963A6B2BD0A267665461069F1D1211122017A3CD",
+      "bytes": 11030,
       "mime": "text/html; charset=utf-8"
     },
     {
