@@ -402,37 +402,78 @@ try {
     }
   });
 
-  await expectPass('almanaque_bilingual_proposal_preserves_education_limits', async () => {
-    for (const [relative, headingId, markers, existingMarkers] of [
-      ['proyectos/educacion/index.html', 'almanaque-titulo', [
-        'ALMANAQUE · Historia del conocimiento', 'aplicación educativa propuesta',
-        'líneas de tiempo y grafos', 'una fecha aproximada no se presenta como',
-        'una ausencia documental no se rellena como hecho',
-        'Su corpus todavía no está integrado en la aplicación educativa ni constituye contenido pedagógico validado.',
-        'a revisión histórica y pedagógica antes de cualquier incorporación educativa.',
-      ], ['cliente Android y motor offline-first', 'dos recorridos de aprendizaje',
-        'Hoy no se ofrece APK ni enlace', 'no acredita cobertura en 22 lenguas']],
-      ['en/proyectos/educacion/index.html', 'almanaque-title', [
-        'ALMANAQUE · History of knowledge', 'proposed educational application',
-        'historical sources through timelines and graphs', 'an approximate date is not presented as',
-        'a documentary gap is not filled in as fact',
-        'Its corpus is not yet integrated into the educational application and is not validated pedagogical content.',
-        'to historical and pedagogical review before any educational incorporation.',
-      ], ['an Android client and offline-first engine', 'two learning journeys',
-        'No APK or installation link is offered', 'does not establish coverage in 22 languages']],
-    ]) {
-      const html = await readFile(path.join(baseline, ...relative.split('/')), 'utf8');
-      const sections = [...html.matchAll(/<section\b[^>]*\bid="almanaque"[^>]*>[\s\S]*?<\/section>/g)];
-      const section = sections[0]?.[0] ?? '';
-      if (sections.length !== 1 || !section.includes('aria-labelledby="' + headingId + '"') ||
-          !section.includes('<h2 id="' + headingId + '">') ||
-          !markers.every((value) => section.includes(value)) ||
-          !existingMarkers.every((value) => html.includes(value)) ||
-          /<a\b|<script\b|<iframe\b|<form\b|<img\b/i.test(section)) {
-        throw new Error('ALMANAQUE_EDUCATIONAL_PROPOSAL_SCOPE_INVALID:' + relative);
-      }
+  const almanaqueCases = [
+    {
+      relative: 'proyectos/educacion/index.html', headingId: 'almanaque-titulo',
+      portfolio: 'portafolio/index.html', perception: '/proyectos/percepcion/',
+      worldMarkers: ['Las fuentes, las reconstrucciones y las preguntas abiertas',
+        'aprendizaje multilingüe', 'conectividad limitada'],
+      pageMarkers: ['acceso público y gratuito', 'En desarrollo',
+        'Contamos con un primer recorrido 3D situado en Padua, del 7 al 15 de enero de 1610',
+        'cuaderno e interacción con un personaje guía',
+        'La siguiente muestra nos llevará a México-Tenochtitlan, el 8 de noviembre de 1519',
+        'esta experiencia ampliará ALMANAQUE', 'académicos, historiadores, docentes',
+        'gobiernos estatales y federal', 'datetime="2026-10-15"'],
+      vision: 'Nuestra visión a largo plazo', stages: 'por etapas',
+      date: '8 de noviembre de 1519', next: 'La siguiente muestra nos llevará',
+      cardMarkers: ['Primera muestra', 'Padua, 7–15 de enero de 1610',
+        'Siguiente muestra', 'México-Tenochtitlan, 8 de noviembre de 1519'],
+    },
+    {
+      relative: 'en/proyectos/educacion/index.html', headingId: 'almanaque-title',
+      portfolio: 'en/portfolio/index.html', perception: '/en/proyectos/percepcion/',
+      worldMarkers: ['Sources, reconstructions and open questions',
+        'multilingual learning', 'limited connectivity'],
+      pageMarkers: ['free public access', 'In development',
+        'We have developed an initial 3D route set in Padua from 7 to 15 January 1610',
+        'a notebook and interaction with a guide character',
+        'The next sample will take us to Mexico-Tenochtitlan on 8 November 1519',
+        'this experience will extend ALMANAQUE', 'academics, historians, teachers',
+        'state and federal governments', 'datetime="2026-10-15"'],
+      vision: 'Our long-term vision', stages: 'a staged approach',
+      date: '8 November 1519', next: 'The next sample will take us',
+      cardMarkers: ['First sample', 'Padua, 7–15 January 1610',
+        'Next sample', 'Mexico-Tenochtitlan, 8 November 1519'],
+    },
+  ];
+  function validateAlmanaque(html, cardPage, cfg) {
+    const sections = [...html.matchAll(/<section\b[^>]*\bid="almanaque"[^>]*>[\s\S]*?<\/section>/g)];
+    const section = sections[0]?.[0] ?? '';
+    const links = [...section.matchAll(/<a\b([^>]*)>/gi)];
+    const cards = [...cardPage.matchAll(/<article\b[^>]*data-progress="educacion"[^>]*>[\s\S]*?<\/article>/g)];
+    if (sections.length !== 1 || !section.includes('aria-labelledby="' + cfg.headingId + '"') ||
+        !section.includes('<h2 id="' + cfg.headingId + '">') ||
+        !cfg.worldMarkers.every(value => section.includes(value)) ||
+        !cfg.pageMarkers.every(value => html.includes(value)) ||
+        !section.includes(cfg.vision) || !section.includes(cfg.stages) ||
+        links.length !== 1 || links[0][1].trim() !== 'href="' + cfg.perception + '"' ||
+        /<script\b|<iframe\b|<form\b|<img\b|\bon[a-z]+\s*=|\bdownload\b/i.test(section) ||
+        cards.length !== 1 || !cfg.cardMarkers.every(value => cards[0][0].includes(value))) {
+      throw new Error('ALMANAQUE_PUBLIC_SCOPE_INVALID:' + cfg.relative);
+    }
+  }
+  await expectPass('almanaque_bilingual_public_vision_preserves_sample_scope', async () => {
+    for (const cfg of almanaqueCases) {
+      const html = await readFile(path.join(baseline, ...cfg.relative.split('/')), 'utf8');
+      const cardPage = await readFile(path.join(baseline, ...cfg.portfolio.split('/')), 'utf8');
+      validateAlmanaque(html, cardPage, cfg);
     }
   });
+  for (const [index, cfg] of almanaqueCases.entries()) {
+    const html = await readFile(path.join(baseline, ...cfg.relative.split('/')), 'utf8');
+    const cardPage = await readFile(path.join(baseline, ...cfg.portfolio.split('/')), 'utf8');
+    const mutations = [
+      ['wrong_mexico_date', html.replace(cfg.date, cfg.date.replace('1519', '1521'))],
+      ['missing_next_sample_scope', html.replace(cfg.next, 'Current sample')],
+      ['missing_long_term_vision', html.replace(cfg.vision, 'Current integration')],
+      ['external_bridge_link', html.replace('href="' + cfg.perception + '"', 'href="https://example.invalid/"')],
+      ['active_world_content', html.replace('<h2 id="' + cfg.headingId + '">', '<script>void 0</script><h2 id="' + cfg.headingId + '">')],
+    ];
+    for (const [name, mutated] of mutations) {
+      await expectFail('reject_almanaque_' + index + '_' + name, 'ALMANAQUE_PUBLIC_SCOPE_INVALID',
+        () => validateAlmanaque(mutated, cardPage, cfg));
+    }
+  }
 
   await expectPass('modern_live_deck_bilingual_clear_media_and_caption', async () => {
     const css = await readFile(path.join(source, 'assets', 'home-v4-finish.css'), 'utf8');
