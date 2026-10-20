@@ -304,7 +304,7 @@ function validateProductionInvariants(specification, sourceContent) {
   const runtime = specification.contract.runtime_allowlist;
   const html = runtime.filter((item) => item.endsWith('.html'));
   const canonicalPages = html.filter((item) => item === 'index.html' || item.endsWith('/index.html'));
-  if (runtime.length !== 68) fail('RUNTIME_COUNT_INVALID', String(runtime.length));
+  if (runtime.length !== 87) fail('RUNTIME_COUNT_INVALID', String(runtime.length));
   if (html.length !== 27 || canonicalPages.length !== 26 || !runtime.includes('404.html')) {
     fail('HTML_TOPOLOGY_INVALID');
   }
