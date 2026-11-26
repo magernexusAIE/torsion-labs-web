@@ -10,6 +10,8 @@ const APPROVED_EXTERNAL_LINKS = [
   'https://github.com/torsion-labs',
   'https://www.linkedin.com/company/torsion-labs/',
   'https://x.com/TorsionLab',
+  'https://negocios.torsion-labs.com/',
+  'https://negocios.torsion-labs.com/ciudades/',
 ];
 const SYNTHETIC_CONTROLLER = 'SYNTHETIC & CONTROLLER <TEST>';
 const SYNTHETIC_ADDRESS = 'SYNTHETIC ADDRESS <TEST> 123';
@@ -304,8 +306,8 @@ function validateProductionInvariants(specification, sourceContent) {
   const runtime = specification.contract.runtime_allowlist;
   const html = runtime.filter((item) => item.endsWith('.html'));
   const canonicalPages = html.filter((item) => item === 'index.html' || item.endsWith('/index.html'));
-  if (runtime.length !== 87) fail('RUNTIME_COUNT_INVALID', String(runtime.length));
-  if (html.length !== 27 || canonicalPages.length !== 26 || !runtime.includes('404.html')) {
+  if (runtime.length !== 98) fail('RUNTIME_COUNT_INVALID', String(runtime.length));
+  if (html.length !== 29 || canonicalPages.length !== 28 || !runtime.includes('404.html')) {
     fail('HTML_TOPOLOGY_INVALID');
   }
   for (const relative of PRIVACY_PROTOTYPE_FILES) {

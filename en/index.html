@@ -3,33 +3,66 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Computational research and technology development across six areas. Explore projects, software and evidence with explicit scope and limitations.">
+  <meta name="description" content="Torsión Labs: computational research, applied AI, and seven active domains — including Torsion Local (20 Mexican cities) and OmniPredict R2.1 — with verifiable evidence and explicit boundaries.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://torsion-labs.com/en/">
   <link rel="alternate" hreflang="es" href="https://torsion-labs.com/">
   <link rel="alternate" hreflang="en" href="https://torsion-labs.com/en/">
-  <meta property="og:title" content="Torsion Labs · Computational research and technology">
-  <meta property="og:description" content="Computational research and technology development across six areas. Explore projects, software and evidence with explicit scope and limitations.">
+  <link rel="alternate" hreflang="x-default" href="https://torsion-labs.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Torsión Labs">
+  <meta property="og:title" content="Torsión Labs · Computational research, applied AI, and seven active domains">
+  <meta property="og:description" content="Seven active domains spanning territorial AI (Torsion Local), biomedical modeling (OmniPredict R2.1), 3D history education, distributed solar energy, security & law, physics, and perception.">
   <meta property="og:image" content="https://torsion-labs.com/assets/og-image.png">
   <meta property="og:url" content="https://torsion-labs.com/en/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Torsion Labs · Computational research and technology">
-  <meta name="twitter:description" content="Computational research and technology development across six areas. Explore projects, software and evidence with explicit scope and limitations.">
-  <title>Torsion Labs · Computational research and technology</title>
+  <meta name="twitter:title" content="Torsión Labs · Computational research and applied AI">
+  <meta name="twitter:description" content="Seven active domains with governed evidence: Torsion Local, OmniPredict R2.1, ALMANAQUE, VERDE, SED, Rotor 18, and Neurovisión.">
+  <title>Torsión Labs · Computational research, applied AI, and verifiable technology</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://torsion-labs.com/#organization",
-    "name": "Torsión Labs",
-    "alternateName": ["Torsión", "Torsion Labs"],
-    "url": "https://torsion-labs.com/",
-    "logo": "https://torsion-labs.com/assets/logo-torsion.svg",
-    "description": "Computational research and technology development across six areas. Explore projects, software and evidence with explicit scope and limitations.",
-    "sameAs": [
-      "https://github.com/torsion-labs",
-      "https://www.linkedin.com/company/torsion-labs/",
-      "https://x.com/TorsionLab"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://torsion-labs.com/#organization",
+        "name": "Torsión Labs",
+        "alternateName": ["Torsión", "Torsion Labs"],
+        "url": "https://torsion-labs.com/",
+        "logo": "https://torsion-labs.com/assets/logo-torsion.svg",
+        "description": "Computational research and applied technology laboratory operating seven active domains with traceable evidence and explicit limits.",
+        "areaServed": "MX",
+        "sameAs": [
+          "https://negocios.torsion-labs.com/",
+          "https://negocios.torsion-labs.com/ciudades/",
+          "https://github.com/torsion-labs",
+          "https://www.linkedin.com/company/torsion-labs/",
+          "https://x.com/TorsionLab"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://torsion-labs.com/#website",
+        "url": "https://torsion-labs.com/en/",
+        "name": "Torsión Labs",
+        "inLanguage": ["en", "es"],
+        "publisher": { "@id": "https://torsion-labs.com/#organization" }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://torsion-labs.com/en/#domains",
+        "name": "Seven active domains of Torsión Labs",
+        "numberOfItems": 7,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Torsion Local · Local Business Digitalization", "url": "https://torsion-labs.com/en/proyectos/torsion-local/" },
+          { "@type": "ListItem", "position": 2, "name": "OmniPredict · Biomedical modeling", "url": "https://torsion-labs.com/en/proyectos/biomedicina/" },
+          { "@type": "ListItem", "position": 3, "name": "Education AI · ALMANAQUE", "url": "https://torsion-labs.com/en/proyectos/educacion/" },
+          { "@type": "ListItem", "position": 4, "name": "VERDE · Energy with local control", "url": "https://torsion-labs.com/en/proyectos/energia/" },
+          { "@type": "ListItem", "position": 5, "name": "SED · Security, Economics and International Law", "url": "https://torsion-labs.com/en/proyectos/seguridad/" },
+          { "@type": "ListItem", "position": 6, "name": "Rotor 18 · Coherence physics", "url": "https://torsion-labs.com/en/proyectos/rotor-18/" },
+          { "@type": "ListItem", "position": 7, "name": "Neurovisión and lenses", "url": "https://torsion-labs.com/en/proyectos/percepcion/" }
+        ]
+      }
     ]
   }
   </script>
@@ -37,6 +70,7 @@
   <link rel="stylesheet" href="/assets/home-v4.css?v=refresh-theme-1">
   <link rel="stylesheet" href="/assets/home-v4-finish.css?v=refresh-theme-1">
   <link rel="stylesheet" href="/assets/footer-links.css?v=refresh-theme-1">
+  <link rel="stylesheet" href="/assets/v5-interactive.css?v=20261126v5">
 </head>
 <body>
   <header class="bar">
@@ -45,37 +79,47 @@
     </a>
     <p>Laboratory for verifiable futures</p>
     <nav aria-label="Sections">
-      <a href="#vision">Vision</a><a href="#explore">Explore</a>
-      <a href="#method">Method</a><a href="/en/science/">Science</a>
-      <a class="lang" href="/" lang="es" hreflang="es" aria-label="Ver sitio en español">ES</a>
+      <a href="#avances">Progress</a>
+      <a href="#explore">Explore</a>
+      <a href="/en/portfolio/">Portfolio</a>
+      <a href="/en/proyectos/torsion-local/">Torsion Local</a>
+      <a href="/en/science/">Science</a>
+      <a class="lang" href="/" lang="es" hreflang="es" aria-label="ES · Ver sitio en español">ES</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
+      <div class="hero-ambient" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="metadata" disablepictureinpicture poster="/assets/live/torsion-hero-nebula-v1.webp">
+          <source src="/assets/live/torsion-hero-nebula-v1.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="hero-copy">
-        <p class="eyebrow">Science · autonomy · common good</p>
+        <p class="eyebrow">Science · applied AI · common good</p>
         <h1>Connecting what appears separate.</h1>
-        <p class="lead">We investigate how information, matter and intelligence can become verifiable capabilities serving human progress.</p>
+        <p class="lead">We research and deploy verifiable systems where information, matter, and intelligence expand human autonomy — from computational laboratories to independent local businesses across Mexico.</p>
         <div class="actions">
-          <a class="button acid" href="#explore">Explore the field</a>
-          <a class="button glass" href="/en/science/">See the science</a>
+          <a class="button acid" href="#explore">Explore the 7 domains</a>
+          <a class="button glass" href="/en/portfolio/">View portfolio</a>
+          <a class="button emerald-pill" href="https://negocios.torsion-labs.com/" target="_blank" rel="noopener noreferrer">Torsion Local · 20 Cities ↗</a>
         </div>
       </div>
-<figure class="torsion-visual torsion-visual--hero" data-torsion-visual="hero" aria-label="Torsión conceptual domains">
+      <figure class="torsion-visual torsion-visual--hero" data-torsion-visual="hero" aria-label="Interactive geometry of Torsión's seven active domains">
         <svg class="torsion-visual-fallback" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><circle cx="60" cy="60" r="52"/><g class="torsion-fallback-arms"><path d="M60 60 C62 40 82 32 96 44 C106 53 106 72 94 82"/><path d="M60 60 C62 40 82 32 96 44 C106 53 106 72 94 82" transform="rotate(120 60 60)"/><path d="M60 60 C62 40 82 32 96 44 C106 53 106 72 94 82" transform="rotate(240 60 60)"/></g><circle class="torsion-fallback-core" cx="60" cy="60" r="4"/></svg>
         <canvas class="torsion-water-canvas" aria-hidden="true"></canvas>
-        <span class="torsion-visual-label torsion-visual-label--0">Physics</span>
-        <span class="torsion-visual-label torsion-visual-label--1">Energy</span>
-        <span class="torsion-visual-label torsion-visual-label--2">Integrity</span>
-        <span class="torsion-visual-label torsion-visual-label--3">Biology</span>
-        <span class="torsion-visual-label torsion-visual-label--4">Perception</span>
-        <span class="torsion-visual-label torsion-visual-label--5">Education</span>
-        <figcaption class="torsion-visual-caption">Conceptual geometry · not a measurement</figcaption>
+        <span class="torsion-visual-label torsion-visual-label--0">Territory</span>
+        <span class="torsion-visual-label torsion-visual-label--1">Biology</span>
+        <span class="torsion-visual-label torsion-visual-label--2">Education</span>
+        <span class="torsion-visual-label torsion-visual-label--3">Energy</span>
+        <span class="torsion-visual-label torsion-visual-label--4">Integrity</span>
+        <span class="torsion-visual-label torsion-visual-label--5">Physics</span>
+        <span class="torsion-visual-label torsion-visual-label--6">Perception</span>
+        <figcaption class="torsion-visual-caption">Interactive geometry · select any domain</figcaption>
       </figure>
       <div class="signal" aria-label="Research status">
-        <span class="pulse"></span><b>Active research</b>
-        <span>Six domains · governed evidence</span>
+        <span class="pulse"></span><b>Active research &amp; deployment</b>
+        <span>Seven domains · governed evidence</span>
       </div>
       <button class="brand-motion-toggle" type="button" data-brand-motion-toggle data-label-pause="Pause motion" data-label-play="Resume motion" data-label-static="Reduced motion" aria-pressed="false" hidden>Pause motion</button>
       <a class="scroll" href="#vision">Scroll to enter <span>↓</span></a>
@@ -85,49 +129,114 @@
       <p class="eyebrow dark">Our direction</p>
       <h2>We do not build a single answer. We build bridges that can be put to the test.</h2>
       <div class="statement-grid">
-        <p>A signal becomes knowledge when it preserves provenance, admits contradiction and can be reconstructed.</p>
-        <p>Technology becomes human when it expands autonomy, understanding and the capacity to decide.</p>
+        <p>A signal becomes knowledge when it preserves provenance, admits contradiction, and can be reconstructed with auditable arithmetic.</p>
+        <p>Technology becomes human when it expands autonomy, understanding, and real operational capability in the field without surrendering privacy.</p>
       </div>
     </section>
 
-
     <section class="statement" id="avances" aria-labelledby="avances-titulo">
-      <p class="eyebrow dark"><time datetime="2026-10-15">October 15, 2026</time></p>
-      <h2 id="avances-titulo">Technology in development. Progress taking shape.</h2>
-      <p>Distributed energy, source-based learning, biomedical research and risk analysis: four areas where we are turning questions into prototypes and experiences. Here is their progress and what comes next.</p>
-      <div class="statement-grid">
-        <p><strong><a href="/en/proyectos/energia/">VERDE · Energy with local control</a></strong><br>We research software to support distributed solar-energy management. Thermal models and software tests with synthetic data have progressed. Physical validation remains pending; the next step is comparison with independent measurements.</p>
-        <p><strong><a href="/en/proyectos/educacion/">Education AI · ALMANAQUE</a></strong><br>ALMANAQUE proposes learning History by comparing sources, recognizing differences and building arguments. The activity is designed; evaluation with participants and integration into the application remain pending.</p>
-        <p><strong><a href="/en/proyectos/biomedicina/">OmniPredict · Biomedical modeling</a></strong><br>We develop computational models for biomedical research. The software has improved and has been tested with synthetic cases; calibration with biophysical data and clinical evaluation remain pending.</p>
-        <p><strong><a href="/en/proyectos/seguridad/">Security, Economics and International Law</a></strong><br>We study tools for analyzing digital risks and economic behavior alongside their legal context. Aegis and the economic engine have been tested with synthetic scenarios. Work remains at the development stage, with operational evaluation still pending.</p>
+      <p class="eyebrow dark"><time datetime="2026-11-26">November 26, 2026</time></p>
+      <h2 id="avances-titulo">Seven active domains. Science, software, and territory in motion.</h2>
+      <p>From turnkey AI &amp; IT infrastructure for independent local businesses across 20 Mexican cities to the OmniPredict R2.1 auditable biomedical engine, alongside 3D historical learning worlds, distributed solar energy, security &amp; law, coherence physics, and perception.</p>
+      <div class="advances-grid">
+        <article class="advance-card">
+          <div class="advance-card__media">
+            <img src="/assets/identity-v1/images/torsion-local.webp" width="320" height="220" loading="lazy" alt="Aerial view of Querétaro, Base 01 of Torsion Local">
+          </div>
+          <div>
+            <span class="advance-card__badge">Live operation · 20 Cities MX</span>
+            <h3>Torsion Local · Digitalize your business</h3>
+            <p>Turnkey AI &amp; IT infrastructure for independent merchants: NFC + Google Maps, voice-updated storefront in 15 s, 24/7 WhatsApp AI, and 0 % commission local delivery. Base #01 operating in Querétaro under Zero-PII governance.</p>
+            <div class="advance-card__links">
+              <a href="/en/proyectos/torsion-local/">Project profile →</a>
+              <a href="https://negocios.torsion-labs.com/ciudades/" target="_blank" rel="noopener noreferrer">20 Cities Map ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="advance-card">
+          <div class="advance-card__media">
+            <img src="/assets/identity-v1/images/biomedicina.webp" width="320" height="220" loading="lazy" alt="Conceptual visual for OmniPredict biomedical modeling">
+          </div>
+          <div>
+            <span class="advance-card__badge">R2.1 audit · 196/196 tests</span>
+            <h3>OmniPredict · Biomedical modeling</h3>
+            <p>Multiscale computational auditing engine with verified contracts, SHA-256 cryptographic checks, exact arithmetic, tautology guards, and quantitative bone remodeling pilot (M2-Regeneración). Strictly computational research; no clinical claims.</p>
+            <div class="advance-card__links">
+              <a href="/en/proyectos/biomedicina/">Explore R2.1 progress →</a>
+              <a href="/en/evidence/">Evidence record →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="advance-card">
+          <div class="advance-card__media">
+            <img src="/assets/identity-v1/images/educacion.webp" width="320" height="220" loading="lazy" alt="Conceptual visual for Education AI ALMANAQUE">
+          </div>
+          <div>
+            <span class="advance-card__badge">Free public access · 3D worlds</span>
+            <h3>Education AI · ALMANAQUE</h3>
+            <p>Free 3D historical environments for learning History by comparing primary sources, recognizing discrepancies, and building original arguments. First sample in Padua 1610 and next scene in Mexico-Tenochtitlan 1519.</p>
+            <div class="advance-card__links">
+              <a href="/en/proyectos/educacion/">Explore ALMANAQUE →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="advance-card">
+          <div class="advance-card__media">
+            <img src="/assets/identity-v1/images/energia.webp" width="320" height="220" loading="lazy" alt="Conceptual visual for VERDE and Torsión engineering systems">
+          </div>
+          <div>
+            <span class="advance-card__badge">Engineering · 4 active lines</span>
+            <h3>VERDE, SED, Rotor 18 &amp; Neurovisión</h3>
+            <p>Local-control solar thermal software (53/53 synthetic tests), security/economics/international-law risk platform, computational coherence dynamics, and temporal perception in simulation — each with explicit evidence limits.</p>
+            <div class="advance-card__links">
+              <a href="/en/portfolio/">Open all 7 projects →</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="explore" id="explore">
       <header>
         <p class="eyebrow">Field in motion</p>
-        <h2>One investigation.<br>Six manifestations.</h2>
-        <p>Switch scenes or choose a domain. The visualization reveals pathways; it does not replace evidence.</p>
+        <h2>One investigation.<br>Seven manifestations.</h2>
+        <p>Switch between live video scenes or select any of our seven active domains. Visualization reveals architecture and territory; it does not replace evidence.</p>
       </header>
       <div class="explore-media">
-        <section class="live-deck" data-live-deck aria-label="Torsión conceptual visualizations">
+        <section class="live-deck" data-live-deck aria-label="Torsión Labs interactive video scenes">
           <div class="live-tabs">
-            <div class="live-tablist" role="tablist" aria-label="Torsión scenes">
+            <div class="live-tablist live-tablist--4" role="tablist" aria-label="Torsión video scenes">
               <button class="live-tab" id="tab-network" role="tab" aria-selected="true" aria-controls="panel-network" tabindex="0" data-live-tab="network"><span>01</span> Federated network</button>
-              <button class="live-tab" id="tab-field" role="tab" aria-selected="false" aria-controls="panel-field" tabindex="-1" data-live-tab="field"><span>02</span> Torsional field</button>
+              <button class="live-tab" id="tab-territory" role="tab" aria-selected="false" aria-controls="panel-territory" tabindex="-1" data-live-tab="territory"><span>02</span> Territory · 20 Cities</button>
+              <button class="live-tab" id="tab-field" role="tab" aria-selected="false" aria-controls="panel-field" tabindex="-1" data-live-tab="field"><span>03</span> Torsional field</button>
+              <button class="live-tab" id="tab-method" role="tab" aria-selected="false" aria-controls="panel-method" tabindex="-1" data-live-tab="method"><span>04</span> Method &amp; form</button>
             </div>
             <button class="motion-toggle" type="button" aria-pressed="false" data-motion-toggle data-label-pause="Pause" data-label-play="Play" aria-label="Pause visualization">Pause</button>
           </div>
           <div class="live-stage">
             <article class="live-panel" id="panel-network" role="tabpanel" aria-labelledby="tab-network" data-live-panel="network">
               <div class="live-visual">
-                <video muted loop playsinline preload="metadata" disablepictureinpicture data-playback-rate="0.85" poster="/assets/live/torsion-network-v2.webp" aria-label="Conceptual animated federated network; not real traffic">
+                <video muted loop playsinline preload="metadata" disablepictureinpicture data-playback-rate="0.85" poster="/assets/live/torsion-network-v2.webp" aria-label="Conceptual animated federated network of seven domains">
                   <source src="/assets/live/torsion-network-v2.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="live-caption">
-              <div class="live-copy"><p>Conceptual visualization · local loop</p><h3>Federated network</h3><span>Six domains exchange provenance, contradictions, and evidence states. This does not represent real traffic.</span></div>
-              <div class="live-state"><i></i> Local motion · not live telemetry</div>
+                <div class="live-copy"><p>Conceptual visualization · local loop</p><h3>Seven-domain federated network</h3><span>Seven domains exchange provenance, software contracts, and explicit evidence states. Not real telemetry traffic.</span></div>
+                <div class="live-state"><i></i> Local scene · conceptual architecture</div>
+              </div>
+            </article>
+            <article class="live-panel" id="panel-territory" role="tabpanel" aria-labelledby="tab-territory" data-live-panel="territory" hidden>
+              <div class="live-visual">
+                <video muted loop playsinline preload="metadata" disablepictureinpicture data-playback-rate="0.9" poster="/assets/live/torsion-local-ciudad.webp" aria-label="Aerial footage of Querétaro, Base 01 of Torsion Local">
+                  <source src="/assets/live/torsion-local-ciudad.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="live-caption">
+                <div class="live-copy"><p>Torsion Local · Territorial deployment</p><h3>Mexico: Modern &amp; Digitalized Cities</h3><span>Base #01 operating in Querétaro with AI &amp; IT infrastructure for local merchants, scaling across 20 strategic Mexican cities.</span></div>
+                <div class="live-state"><i></i> Territorial scene · Base #01 Querétaro</div>
               </div>
             </article>
             <article class="live-panel" id="panel-field" role="tabpanel" aria-labelledby="tab-field" data-live-panel="field" hidden>
@@ -137,22 +246,49 @@
                 </video>
               </div>
               <div class="live-caption">
-              <div class="live-copy"><p>Conceptual visualization · local loop</p><h3>Torsional field</h3><span>Synthetic trajectories explore how a perturbation can reorganize a system. This is not a physical measurement.</span></div>
-              <div class="live-state"><i></i> Local motion · not live telemetry</div>
+                <div class="live-copy"><p>Conceptual visualization · local loop</p><h3>Torsional field</h3><span>Synthetic trajectories explore how a perturbation reorganizes a dynamical system. Not a physical measurement.</span></div>
+                <div class="live-state"><i></i> Local scene · conceptual dynamics</div>
+              </div>
+            </article>
+            <article class="live-panel" id="panel-method" role="tabpanel" aria-labelledby="tab-method" data-live-panel="method" hidden>
+              <div class="live-visual">
+                <video muted loop playsinline preload="metadata" disablepictureinpicture data-playback-rate="0.85" poster="/assets/live/torsion-method-form-v1.webp" aria-label="Conceptual visualization of verifiable method and form">
+                  <source src="/assets/live/torsion-method-form-v1.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="live-caption">
+                <div class="live-copy"><p>Conceptual visualization · local loop</p><h3>Method, contrast &amp; evidence</h3><span>Every computational module preserves traceability from hypothesis to automated verification and explicit open boundaries.</span></div>
+                <div class="live-state"><i></i> Local scene · scientific governance</div>
               </div>
             </article>
           </div>
         </section>
-        <div class="domain-selector">
-          <div class="domain-buttons" aria-label="Research domains">
-            <button data-domain="Physics" data-copy="Patterns, invariants and spectral dynamics." data-link="/en/proyectos/rotor-18/"><span>01</span><b>Physics</b></button>
-            <button data-domain="Energy" data-copy="Computational paths for studying coherence and transfer." data-link="/en/proyectos/energia/"><span>02</span><b>Energy</b></button>
-            <button data-domain="Integrity" data-copy="Provenance, security and verifiable systems." data-link="/en/proyectos/seguridad/"><span>03</span><b>Integrity</b></button>
-            <button data-domain="Biology" data-copy="Computational models with explicit evidence boundaries." data-link="/en/proyectos/biomedicina/"><span>04</span><b>Biology</b></button>
-            <button data-domain="Perception" data-copy="Representations, context and the construction of meaning." data-link="/en/proyectos/percepcion/"><span>05</span><b>Perception</b></button>
-            <button data-domain="Education" data-copy="Tools that expand understanding and autonomy." data-link="/en/proyectos/educacion/"><span>06</span><b>Education</b></button>
+
+        <div class="domain-selector domain-selector--visual">
+          <div class="domain-buttons domain-buttons--7" aria-label="Seven active domains of Torsión Labs">
+            <button data-domain="Torsion Local" data-copy="Turnkey AI &amp; IT infrastructure for independent Mexican businesses: NFC + Google Maps, voice-updated web storefront, 24/7 WhatsApp AI, and 0 % commission delivery. Base #01 Querétaro and 20-city roadmap." data-link="/en/proyectos/torsion-local/" data-img="/assets/identity-v1/images/torsion-local.webp" data-emblem="/assets/identity-v1/emblems/torsion-local.svg" data-ext="https://negocios.torsion-labs.com/ciudades/" data-ext-label="20 Cities MX Map ↗"><span>01</span><b>Torsion Local</b></button>
+            <button data-domain="OmniPredict" data-copy="Computational biomedical modeling under R2.1 contracts: 196/196 automated tests, SHA-256 verification, exact arithmetic, and M2-Regeneración quantitative bone pilot. Strictly research; no clinical claims." data-link="/en/proyectos/biomedicina/" data-img="/assets/identity-v1/images/biomedicina.webp" data-emblem="/assets/identity-v1/emblems/biomedicina.svg"><span>02</span><b>Biology · OmniPredict</b></button>
+            <button data-domain="Education AI · ALMANAQUE" data-copy="Free 3D historical worlds for learning History by comparing primary sources (Padua 1610 and Mexico-Tenochtitlan 1519), open to academia and institutions." data-link="/en/proyectos/educacion/" data-img="/assets/identity-v1/images/educacion.webp" data-emblem="/assets/identity-v1/emblems/educacion.svg"><span>03</span><b>Education · ALMANAQUE</b></button>
+            <button data-domain="VERDE · Energy" data-copy="Local-control software and thermal models for distributed solar energy with 53/53 audited synthetic tests and independent bench preparation." data-link="/en/proyectos/energia/" data-img="/assets/identity-v1/images/energia.webp" data-emblem="/assets/identity-v1/emblems/energia.svg"><span>04</span><b>Energy · VERDE</b></button>
+            <button data-domain="SED · Integrity" data-copy="Software platform under development connecting digital security, economic analysis, and international law for adaptable professional practice." data-link="/en/proyectos/seguridad/" data-img="/assets/identity-v1/images/seguridad.webp" data-emblem="/assets/identity-v1/emblems/seguridad.svg"><span>05</span><b>Integrity · SED</b></button>
+            <button data-domain="Rotor 18 · Physics" data-copy="Simulation software prototype exploring patterns, invariants, and spectral dynamics with traceable dimensional corrections and explicit physical bounds." data-link="/en/proyectos/rotor-18/" data-img="/assets/identity-v1/images/rotor-18.webp" data-emblem="/assets/identity-v1/emblems/rotor-18.svg"><span>06</span><b>Physics · Rotor 18</b></button>
+            <button data-domain="Neurovisión · Perception" data-copy="Simulation software for temporal event integration and analysis in future perception systems, designed with privacy and autonomy from inception." data-link="/en/proyectos/percepcion/" data-img="/assets/identity-v1/images/percepcion.webp" data-emblem="/assets/identity-v1/emblems/percepcion.svg"><span>07</span><b>Perception · Neurovisión</b></button>
           </div>
-          <aside class="domain-panel" aria-live="polite"><span>01 / 06</span><h3>Physics</h3><p>Patterns, invariants and spectral dynamics.</p><a href="/en/proyectos/rotor-18/">Open project →</a></aside>
+          <aside class="domain-panel domain-panel--visual" aria-live="polite">
+            <div class="domain-panel__preview">
+              <img data-domain-img src="/assets/identity-v1/images/torsion-local.webp" alt="Torsion Local" width="480" height="270" loading="lazy">
+            </div>
+            <span data-domain-counter>01 / 07</span>
+            <div class="domain-panel__head">
+              <img data-domain-emblem src="/assets/identity-v1/emblems/torsion-local.svg" alt="" width="26" height="26">
+              <h3 data-domain-title>Torsion Local</h3>
+            </div>
+            <p data-domain-copy>Turnkey AI &amp; IT infrastructure for independent Mexican businesses: NFC + Google Maps, voice-updated storefront, 24/7 WhatsApp AI, and 0 % commission delivery.</p>
+            <div class="domain-panel__actions">
+              <a data-domain-link href="/en/proyectos/torsion-local/">Open project →</a>
+              <a data-domain-ext href="https://negocios.torsion-labs.com/ciudades/" target="_blank" rel="noopener noreferrer">20 Cities MX Map ↗</a>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -161,10 +297,14 @@
       <div class="method-copy">
         <p class="eyebrow">From wonder to traceability</p>
         <h2>From question<br>to evidence.</h2>
-        <p>We separate vision, models, results and projections. Every public statement must find its way back to a source and an evidence state.</p>
+        <p>We separate vision, models, results, and deployments. Every public statement must trace back to a source, a verification test, and an explicit boundary.</p>
         <a href="/en/evidence/">Understand the evidence system →</a>
+        <div class="method-detail-card" aria-live="polite">
+          <strong id="method-detail-title">02 · Contrast</strong>
+          <p id="method-detail-copy">Every hypothesis and software module is challenged through automated contract suites, independent controls, and cross-unit review before scaling.</p>
+        </div>
       </div>
-<figure class="torsion-visual torsion-visual--method method-flow" data-torsion-visual="method" aria-label="Conceptual path from question to evidence">
+      <figure class="torsion-visual torsion-visual--method method-flow" data-torsion-visual="method" aria-label="Interactive path from question to evidence">
         <svg class="torsion-visual-fallback" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true" focusable="false">
           <path class="method-flow-fallback-echo" d="M30 189 C55 180 83 172.2 100 172.2 C180 172.2 286.667 247.8 366.667 247.8 C446.667 247.8 553.333 172.2 633.333 172.2 C713.333 172.2 820 247.8 900 247.8 C925 247.8 950 230 970 218" transform="translate(0 -4)"/>
           <path d="M30 189 C55 180 83 172.2 100 172.2 C180 172.2 286.667 247.8 366.667 247.8 C446.667 247.8 553.333 172.2 633.333 172.2 C713.333 172.2 820 247.8 900 247.8 C925 247.8 950 230 970 218"/>
@@ -174,21 +314,22 @@
         </svg>
         <canvas class="torsion-water-canvas" aria-hidden="true"></canvas>
         <ol class="method-flow-stages">
-          <li data-flow-stage="0"><span class="method-flow-number">01</span>Question</li>
-          <li data-flow-stage="1" class="is-active"><span class="method-flow-number">02</span>Contrast</li>
-          <li data-flow-stage="2"><span class="method-flow-number">03</span>Correction</li>
-          <li data-flow-stage="3"><span class="method-flow-number">04</span>Evidence</li>
+          <li data-flow-stage="0" data-stage-title="01 · Question" data-stage-copy="We define the problem, variables, real scope, and privacy/security boundaries before writing a single line of production code."><button type="button" class="method-stage-btn"><span class="method-flow-number">01</span>Question</button></li>
+          <li data-flow-stage="1" class="is-active" data-stage-title="02 · Contrast" data-stage-copy="Every hypothesis and software module is challenged through automated contract suites, independent controls, and cross-unit review before scaling."><button type="button" class="method-stage-btn"><span class="method-flow-number">02</span>Contrast</button></li>
+          <li data-flow-stage="2" data-stage-title="03 · Correction" data-stage-copy="Whenever an audit detects an unbacked constant, batch bias, or dimensional flaw, it is removed or corrected with an explicit public genealogy."><button type="button" class="method-stage-btn"><span class="method-flow-number">03</span>Correction</button></li>
+          <li data-flow-stage="3" data-stage-title="04 · Evidence" data-stage-copy="We publish only what retains a snapshot date, verifiable provenance, and an honest line between simulation, audited software, and live deployment."><button type="button" class="method-stage-btn"><span class="method-flow-number">04</span>Evidence</button></li>
         </ol>
-        <figcaption class="torsion-visual-caption">Conceptual diagram · not a measurement</figcaption>
+        <figcaption class="torsion-visual-caption">Interactive diagram · select any stage to inspect</figcaption>
       </figure>
     </section>
 
     <section class="closing">
       <p class="eyebrow dark">The question remains open</p>
-      <h2>What can we build when science, intelligence and purpose preserve a shared direction?</h2>
-      <div><a class="button dark-button" href="/en/portfolio/">Explore Portfolio</a><a href="/en/contact/">Talk with Torsion →</a></div>
+      <h2>What can we build when science, intelligence, and purpose preserve a shared direction?</h2>
+      <div><a class="button dark-button" href="/en/portfolio/">Explore all 7 projects</a><a href="/en/contact/">Talk with Torsion →</a></div>
     </section>
   </main>
+
   <footer class="site-footer"><span>TORSION · science, intelligence and purpose</span>
   <nav class="footer-nav" aria-label="Site navigation">
     <div class="footer-nav-group"><h2 class="footer-nav-title">Torsion</h2>
@@ -206,6 +347,6 @@
     </div>
   </nav>
   <nav class="social-nav" aria-label="Follow Torsion"><span class="social-heading">Follow Torsion</span><span class="social-links"><a href="https://github.com/torsion-labs" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg></a><a href="https://www.linkedin.com/company/torsion-labs/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg></a><a href="https://x.com/TorsionLab" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg></a></span></nav></footer>
-  <script src="/assets/home-v4.js?v=refresh-motion-2"></script>
+  <script src="/assets/home-v4.js?v=20261126v5"></script>
 </body>
 </html>

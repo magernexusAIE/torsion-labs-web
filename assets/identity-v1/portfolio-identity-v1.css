@@ -5,6 +5,7 @@
 .identity-biomedicina{--identity-accent:#f1d376;--identity-image:url('/assets/identity-v1/images/biomedicina.webp')}
 .identity-percepcion{--identity-accent:#ff949d;--identity-image:url('/assets/identity-v1/images/percepcion.webp')}
 .identity-educacion{--identity-accent:#cba3ff;--identity-image:url('/assets/identity-v1/images/educacion.webp')}
+.identity-torsion-local{--identity-accent:#62c9a9;--identity-image:url('/assets/identity-v1/images/torsion-local.webp')}
 
 /* The pale page and existing global mark remain the shared Torsión frame. */
 .domains{padding-inline:clamp(22px,5vw,76px)}

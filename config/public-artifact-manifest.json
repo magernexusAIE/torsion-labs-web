@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "contract_id": "TORSION_WEB_PUBLIC_ARTIFACT_V1",
-  "contract_sha256": "659A904F14809D7354F6D080AB75BDE2A030856BF36931016B882F10A2A3C542",
+  "contract_sha256": "5887EA23ACD48BAA1D904017BB321DC4838EA3E5D0DF602DE3D2C334BD539CD5",
   "files": [
     {
       "path": "index.html",
-      "sha256": "06B864B24C0BC573B171FDECED6B7F1A3741C1B1D3E139F1BAC10ED33A317A72",
-      "bytes": 18114,
+      "sha256": "8E1F0C56D4B20853FDF15975C1ACE12D4F17404C4F5F5E12648EA2482C31B3CE",
+      "bytes": 30895,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -17,8 +17,8 @@
     },
     {
       "path": "en/index.html",
-      "sha256": "2DAFE07B49D1BC8D2FF85B5E88922D1F154DFB1035539CF5A80AA946526B5D82",
-      "bytes": 17754,
+      "sha256": "9E73EC9764ECD4F557F230BF2B720E08C52629EE9ED6F8FBBBC8E7FB0939B263",
+      "bytes": 29982,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -47,26 +47,26 @@
     },
     {
       "path": "portafolio/index.html",
-      "sha256": "2A6C7C697F8B21E87FA2FF910B107BF1AC96005BD829DC25DB30423730FBA9B7",
-      "bytes": 12602,
+      "sha256": "29E1769913CFD0B69EB3A1F2F3A82D43BB219A96BFE845F8E8B2B111D2948B0D",
+      "bytes": 20179,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "en/portfolio/index.html",
-      "sha256": "301AFC88462500B33FDF50E0987E2CFEAA49500353EF66713AA73A100CE277B6",
-      "bytes": 12177,
+      "sha256": "F33D71E02267C59266B0D99C2CE207A694FDF94BB9700809705F73D1B0FEB3DB",
+      "bytes": 19708,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "evidencia/index.html",
-      "sha256": "557BBE2EE678EDF7C90038F0A8BB8CF4FB8ED3E7CD32F277F329C9883E9A1E45",
-      "bytes": 13776,
+      "sha256": "FDE0BC86C3ECB980E009955DBEFC75F541E92CB81A0F39BF19DA0676605D064B",
+      "bytes": 16973,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "en/evidence/index.html",
-      "sha256": "E49D539B5B959347BD41D3A2965FD7B34443E871C82D88D861F3EE4F70046A3C",
-      "bytes": 13411,
+      "sha256": "D960BFC9E335E12497761D806DB65F4D854E7AE167045CAD20D94E4E5B88BB05",
+      "bytes": 16590,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -107,14 +107,14 @@
     },
     {
       "path": "proyectos/seguridad/index.html",
-      "sha256": "4C310F96D6547A1AF6923A3FA025323057238B9F011FC99F93712D152459F2D4",
-      "bytes": 10377,
+      "sha256": "7A82C16715427DA414C80C24B9797EFB6B667A9AB43662F92FCFB451456802A6",
+      "bytes": 10337,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "proyectos/biomedicina/index.html",
-      "sha256": "0761312F6FB1DEDABE296A2D3CBACC073A8706DCA1BFE4931E7A46FC4EECD551",
-      "bytes": 8074,
+      "sha256": "2426EB53E57E822C6B0B5200D2B83F8CA726298C243313D2BE106112C7BCB27A",
+      "bytes": 13617,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -127,6 +127,12 @@
       "path": "proyectos/educacion/index.html",
       "sha256": "6D42338D630A7650ECDCAB6937957BA9AE7CE89E56DAB6A52B38687833EFD9FF",
       "bytes": 11865,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "proyectos/torsion-local/index.html",
+      "sha256": "D8665399BC7ACC425463CE685A2255AD847ABB9A88E4ED90AA9332FCF02478C4",
+      "bytes": 15458,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -143,14 +149,14 @@
     },
     {
       "path": "en/proyectos/seguridad/index.html",
-      "sha256": "EED3AA6B54040B2F7FABCA21B68AF08599CE74FCAF49C129FC2A785697F94515",
-      "bytes": 10025,
+      "sha256": "894408FB7FD169BCD6545C0AE6AAFC655CFDFD85E4C1F4C22691AEFBEB5CD2E0",
+      "bytes": 9985,
       "mime": "text/html; charset=utf-8"
     },
     {
       "path": "en/proyectos/biomedicina/index.html",
-      "sha256": "24CB29C6FBA0AD485438C3D816209F45441D22EDC5383E44A4AA6C40E26B1D86",
-      "bytes": 7884,
+      "sha256": "A1DAE52E5AC2FB029064294D5F2E7B60C924470DB77E8113CC003826CD4B05B7",
+      "bytes": 13020,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -163,6 +169,12 @@
       "path": "en/proyectos/educacion/index.html",
       "sha256": "4F0B36EF07F9C881F383777168DA2E2AC1D335F6F6B9731189629447C0BC1DDC",
       "bytes": 11306,
+      "mime": "text/html; charset=utf-8"
+    },
+    {
+      "path": "en/proyectos/torsion-local/index.html",
+      "sha256": "8FBCB31F80C875741D0030D26854DAD87AEBEE00C86F51FCAD3D05B80ED3B048",
+      "bytes": 15087,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -203,8 +215,20 @@
     },
     {
       "path": "assets/home-v4.js",
-      "sha256": "B824698C466FF5D4DA57D5378265079FEB330B22E1A1D22BAA90D8552A516BEA",
-      "bytes": 15308,
+      "sha256": "D2B2C533CCB3B7E3627C84E9159374B7C206C37E71BF66016490E762FD9AD931",
+      "bytes": 18507,
+      "mime": "application/javascript"
+    },
+    {
+      "path": "assets/v5-interactive.css",
+      "sha256": "A34FA84BC6377ED7AAF30DAF0C9E902A6FC2C4286210EA6E273C8921ADA4188F",
+      "bytes": 13401,
+      "mime": "text/css; charset=utf-8"
+    },
+    {
+      "path": "assets/v5-interactive.js",
+      "sha256": "543B7EBBC628CCB7C01C3C26621013A67A44327C032332FC3AC80942A8944764",
+      "bytes": 3627,
       "mime": "application/javascript"
     },
     {
@@ -394,28 +418,70 @@
       "mime": "video/mp4"
     },
     {
+      "path": "assets/live/torsion-local-ciudad.webp",
+      "sha256": "8F12A574B028A81C2AE226562C176F252B2BADB7FC5B10F203FF410966599369",
+      "bytes": 107802,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/live/torsion-local-ciudad.mp4",
+      "sha256": "79C80A2C9FDECADE1DB3CA5985B1F9D8CC62C32CB94C655A749A68032BC00E0C",
+      "bytes": 5100917,
+      "mime": "video/mp4"
+    },
+    {
+      "path": "assets/live/torsion-local-comercio.webp",
+      "sha256": "E9F10E3210029524B9706A3368F799B7C995A27EF3586757E432C93C6471932C",
+      "bytes": 82776,
+      "mime": "image/webp"
+    },
+    {
+      "path": "assets/live/torsion-local-comercio.mp4",
+      "sha256": "008473A3381A5DF5939528B00E2224C5EC7F3DA13D5A5C7EAFA3CE8757246BA2",
+      "bytes": 4595546,
+      "mime": "video/mp4"
+    },
+    {
       "path": "_headers",
-      "sha256": "EFF3604B4897A51C50E755D8D6AD9E7919DB74E95C6DD19E2FCC4F5CF8CA4E2A",
-      "bytes": 435,
+      "sha256": "6F4873A80982DC61044A9213169BA6436839B007966124B337262854468818CE",
+      "bytes": 453,
       "mime": "text/plain; charset=utf-8"
     },
     {
       "path": "robots.txt",
-      "sha256": "AFC28FC13783BAC59BB7EB5127106CAC4B05F3EF90F525EEAEDEBCC9E5012FCA",
-      "bytes": 69,
+      "sha256": "F81C2D5AF5897F2066EB59DD3F7AC13495AA9E0FAF25B525C4AFCEB5B0AC814A",
+      "bytes": 90,
       "mime": "text/plain; charset=utf-8"
     },
     {
       "path": "sitemap.xml",
-      "sha256": "8E303E6158ED3F6F5DD597494F040F2E21B1458361939F8AB147C4B4290ECC8C",
-      "bytes": 5613,
+      "sha256": "67CF9155D5D0DAB356520E114CAC6A9BEE83A6CB62A8763CA37C46E1476F2C97",
+      "bytes": 10347,
       "mime": "application/xml"
     },
     {
+      "path": "llms.txt",
+      "sha256": "306B91048235585A3E3AD85623E498D52F89765BC6BD4842F3E8C7AEBE69DC13",
+      "bytes": 4157,
+      "mime": "text/plain; charset=utf-8"
+    },
+    {
       "path": "assets/identity-v1/portfolio-identity-v1.css",
-      "sha256": "3355FD230C83C60D99FB433B450C1CC58877A357402AA7F8CF9793540A40B228",
-      "bytes": 6527,
+      "sha256": "A0A1CB42AE7A5B1BFAD68916BAF035505360D4D4B2DF86E9F94A6526426CC2B3",
+      "bytes": 6648,
       "mime": "text/css; charset=utf-8"
+    },
+    {
+      "path": "assets/identity-v1/emblems/torsion-local.svg",
+      "sha256": "A55462CCE5029373FACFB73C4F11B47CC64AB5341D100012C5D21B194D2369E2",
+      "bytes": 388,
+      "mime": "image/svg+xml"
+    },
+    {
+      "path": "assets/identity-v1/images/torsion-local.webp",
+      "sha256": "8F12A574B028A81C2AE226562C176F252B2BADB7FC5B10F203FF410966599369",
+      "bytes": 107802,
+      "mime": "image/webp"
     },
     {
       "path": "assets/identity-v1/emblems/rotor-18.svg",

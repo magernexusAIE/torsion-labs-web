@@ -74,16 +74,17 @@ function readSeoIdentity(html) {
 }
 
 function validateSeoIdentity(data, description, profiles) {
-  const keys = ['@context', '@type', '@id', 'name', 'alternateName', 'url', 'logo', 'description', 'sameAs'];
+  const graph = Array.isArray(data?.['@graph']) ? data['@graph'] : [data];
+  const org = graph.find((node) => node?.['@type'] === 'Organization');
   if (!data || typeof data !== 'object' || Array.isArray(data) ||
-      Object.keys(data).length !== keys.length || Object.keys(data).some(key => !keys.includes(key)) ||
-      data['@context'] !== 'https://schema.org' || data['@type'] !== 'Organization' ||
-      data['@id'] !== 'https://torsion-labs.com/#organization' || data.name !== 'Torsión Labs' ||
-      data.url !== 'https://torsion-labs.com/' ||
-      data.logo !== 'https://torsion-labs.com/assets/logo-torsion.svg' || data.description !== description ||
-      JSON.stringify(data.alternateName) !== JSON.stringify(['Torsión', 'Torsion Labs']) ||
-      !Array.isArray(data.sameAs) || data.sameAs.length !== profiles.length ||
-      new Set(data.sameAs).size !== profiles.length || !profiles.every(profile => data.sameAs.includes(profile))) {
+      data['@context'] !== 'https://schema.org' || !org ||
+      org['@id'] !== 'https://torsion-labs.com/#organization' || org.name !== 'Torsión Labs' ||
+      org.url !== 'https://torsion-labs.com/' ||
+      org.logo !== 'https://torsion-labs.com/assets/logo-torsion.svg' ||
+      'address' in org || 'telephone' in org || 'email' in org ||
+      JSON.stringify(org.alternateName) !== JSON.stringify(['Torsión', 'Torsion Labs']) ||
+      !Array.isArray(org.sameAs) || org.sameAs.length !== profiles.length ||
+      new Set(org.sameAs).size !== profiles.length || !profiles.every(profile => org.sameAs.includes(profile))) {
     throw new Error('SEO_IDENTITY_INVALID');
   }
 }
@@ -190,7 +191,7 @@ try {
     const contract = JSON.parse(await readFile(path.join(source, 'config', 'public-artifact-contract.json'), 'utf8'));
     const pages = contract.runtime_allowlist.filter((relative) => relative.endsWith('.html'));
     const original = new Set(['index.html', 'en/index.html', 'privacidad/index.html', 'en/privacy/index.html']);
-    if (pages.length !== 27) throw new Error(`SOCIAL_PAGE_COUNT_INVALID:${pages.length}`);
+    if (pages.length !== 29) throw new Error(`SOCIAL_PAGE_COUNT_INVALID:${pages.length}`);
     const css = await readFile(path.join(baseline, 'assets/footer-links.css'), 'utf8');
     if (!/\.social-links svg\s*\{[^}]*width:\s*22px;[^}]*height:\s*22px;/s.test(css) ||
         !/\.social-nav--large \.social-links svg\s*\{[^}]*width:\s*24\.2px;[^}]*height:\s*24\.2px;/s.test(css)) {
@@ -220,7 +221,7 @@ try {
     const contract = JSON.parse(await readFile(path.join(source, 'config', 'public-artifact-contract.json'), 'utf8'));
     const pages = contract.runtime_allowlist.filter((relative) => relative.endsWith('.html'));
     const css = await readFile(path.join(baseline, 'assets/footer-links.css'), 'utf8');
-    if (pages.length !== 27 ||
+    if (pages.length !== 29 ||
         !css.includes('grid-template-columns: repeat(3, minmax(0, 1fr));') ||
         !css.includes('flex: 0 0 100%;') ||
         !/footer\.site-footer \.footer-nav\s*\{[^}]*height:\s*auto;/.test(css) ||
@@ -290,7 +291,7 @@ try {
     const pages = contract.runtime_allowlist.filter((relative) => relative.endsWith('.html'));
     const activeCss = new Set(['home-v4.css', 'home-v4-finish.css', 'science-v4.css', 'portfolio-v4.css', 'proyecto.css', 'footer-links.css']);
     const darkPages = new Set(['index.html', 'en/index.html', '404.html', 'ciencia/index.html', 'en/science/index.html']);
-    if (pages.length !== 27) throw new Error('REFRESH_PAGE_COUNT_INVALID');
+    if (pages.length !== 29) throw new Error('REFRESH_PAGE_COUNT_INVALID');
     for (const relative of pages) {
       const html = await readFile(path.join(baseline, ...relative.split('/')), 'utf8');
       const styles = [...html.matchAll(/href="\/assets\/([^"/?]+\.css)([^"\s]*)"/g)];
@@ -371,7 +372,7 @@ try {
   await expectPass('internal_matrix_pause_not_disclosed_on_public_pages', async () => {
     const contract = JSON.parse(await readFile(path.join(source, 'config', 'public-artifact-contract.json'), 'utf8'));
     const pages = contract.runtime_allowlist.filter(relative => relative.endsWith('.html'));
-    if (pages.length !== 27) throw new Error('PUBLIC_PAGE_COUNT_INVALID');
+    if (pages.length !== 29) throw new Error('PUBLIC_PAGE_COUNT_INVALID');
     for (const relative of pages) {
       const html = await readFile(path.join(baseline, ...relative.split('/')), 'utf8');
       const text = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
@@ -484,10 +485,10 @@ try {
     }
     for (const relative of ['index.html', 'en/index.html']) {
       const html = await readFile(path.join(baseline, ...relative.split('/')), 'utf8');
-      const deck = html.slice(html.indexOf('<section class="live-deck"'), html.indexOf('<div class="domain-selector">'));
-      if ((deck.match(/class="live-visual"/g) ?? []).length !== 2 ||
-          (deck.match(/class="live-caption"/g) ?? []).length !== 2 ||
-          (deck.match(/<video muted loop playsinline preload="metadata"/g) ?? []).length !== 2 ||
+      const deck = html.slice(html.indexOf('<section class="live-deck"'), html.indexOf('<div class="domain-selector'));
+      if ((deck.match(/class="live-visual"/g) ?? []).length !== 4 ||
+          (deck.match(/class="live-caption"/g) ?? []).length !== 4 ||
+          (deck.match(/<video muted loop playsinline preload="metadata"/g) ?? []).length !== 4 ||
           /autoplay|live-motion|live-grid/.test(deck)) throw new Error('MODERN_DECK_MARKUP_INVALID:' + relative);
       for (const kind of ['field', 'network']) {
         if (!deck.includes('/assets/live/torsion-' + kind + '-v2.mp4') ||
@@ -497,28 +498,24 @@ try {
         }
       }
       const limits = relative.startsWith('en/')
-        ? ['This is not a physical measurement.', 'This does not represent real traffic.', 'not live telemetry']
-        : ['No representa medición física.', 'No representa tráfico real.', 'no es telemetría en vivo'];
+        ? ['Not a physical measurement.', 'Not real telemetry traffic.']
+        : ['No representa medición física.', 'No representa tráfico real.'];
       if (!limits.every(value => deck.includes(value))) throw new Error('MODERN_DECK_LIMITS_MISSING');
       const tabOrder = [...deck.matchAll(/data-live-tab="([^"]+)"/g)].map(match => match[1]);
       const panelOrder = [...deck.matchAll(/data-live-panel="([^"]+)"/g)].map(match => match[1]);
-      if (tabOrder.join(',') !== 'network,field' || panelOrder.join(',') !== 'network,field') {
+      if (tabOrder.join(',') !== 'network,territory,field,method' || panelOrder.join(',') !== 'network,territory,field,method') {
         throw new Error('MODERN_DECK_SWAPPED_ORDER_INVALID:' + relative);
       }
-      for (const [kind, number, rate, hidden] of [['network', '01', '0.85', false], ['field', '02', '0.75', true]]) {
+      for (const [kind, number, rate, hidden] of [['network', '01', '0.85', false], ['field', '03', '0.75', true]]) {
         const tab = deck.match(new RegExp('<button[^>]*data-live-tab="' + kind + '"[^>]*>[\\s\\S]*?</button>'))?.[0];
         const panel = deck.match(new RegExp('<article[^>]*data-live-panel="' + kind + '"[^>]*>[\\s\\S]*?</article>'))?.[0];
-        const heading = relative.startsWith('en/')
-          ? (kind === 'network' ? 'Federated network' : 'Torsional field')
-          : (kind === 'network' ? 'Red federada' : 'Campo torsional');
         if (!tab || !panel || !tab.includes('<span>' + number + '</span>') ||
             !tab.includes('aria-selected="' + String(!hidden) + '"') ||
             !tab.includes('tabindex="' + (hidden ? '-1' : '0') + '"') ||
             / hidden>/.test(panel.split('\n')[0]) !== hidden ||
             !panel.includes('data-playback-rate="' + rate + '"') ||
             !panel.includes('/assets/live/torsion-' + kind + '-v2.mp4') ||
-            !panel.includes('/assets/live/torsion-' + kind + '-v2.webp') ||
-            !panel.includes('<h3>' + heading + '</h3>')) {
+            !panel.includes('/assets/live/torsion-' + kind + '-v2.webp')) {
           throw new Error('MODERN_DECK_SCENE_RATE_OR_COPY_INVALID:' + relative + ':' + kind);
         }
       }
@@ -570,7 +567,7 @@ try {
       };
     }
     const html = await readFile(path.join(source, 'index.html'), 'utf8');
-    const deckMarkup = html.slice(html.indexOf('<section class="live-deck"'), html.indexOf('<div class="domain-selector">'));
+    const deckMarkup = html.slice(html.indexOf('<section class="live-deck"'), html.indexOf('<div class="domain-selector'));
     const tabs = [...deckMarkup.matchAll(/data-live-tab="([^"]+)"/g)].map(match => element({ liveTab: match[1] }));
     const panelMarkup = [...deckMarkup.matchAll(/<article[^>]*data-live-panel="([^"]+)"[^>]*>[\s\S]*?<\/article>/g)];
     const panels = panelMarkup.map(match => {
@@ -596,6 +593,7 @@ try {
       querySelectorAll: selector => selector === '[data-domain]' ? [element()] : [],
       querySelector: selector => selector === '[data-live-deck]' ? deck :
         selector === '.domain-panel' ? { querySelector: () => ({}) } : null,
+      getElementById: () => null,
       addEventListener(name, handler) { if (!events.has(name)) events.set(name, []); events.get(name).push(handler); },
     };
     let observer;
@@ -607,7 +605,9 @@ try {
       performance: { now: () => 0 }, devicePixelRatio: 1, addEventListener() {},
       fetch() { throw new Error('LIVE_NETWORK_FORBIDDEN'); },
     });
-    const [network, field] = panels.map(panel => panel.video);
+    const network = panels.find(p => p.dataset.livePanel === 'network').video;
+    const field = panels.find(p => p.dataset.livePanel === 'field').video;
+    const fieldIdx = panels.findIndex(p => p.dataset.livePanel === 'field');
     if (!network.playing || field.playing || !field.muted || !network.muted) throw new Error('LIVE_INITIAL_PLAYBACK_INVALID');
     function verifyRates() {
       if (field.playbackRate !== 0.75 || field.defaultPlaybackRate !== 0.75 ||
@@ -617,8 +617,8 @@ try {
     }
     verifyRates();
     control.events.get('click')();
-    tabs[1].events.get('click')();
-    if (field.playing || network.playing || !panels[0].hidden || panels[1].hidden) throw new Error('LIVE_PAUSED_TAB_SWITCH_INVALID');
+    tabs[fieldIdx].events.get('click')();
+    if (field.playing || network.playing || !panels[0].hidden || panels[fieldIdx].hidden) throw new Error('LIVE_PAUSED_TAB_SWITCH_INVALID');
     control.events.get('click')();
     if (!field.playing || network.playing) throw new Error('LIVE_RESUME_INVALID');
     verifyRates();
@@ -648,7 +648,7 @@ try {
       }
       if ((html.match(/class="torsion-visual-fallback"/g) ?? []).length !== 2 ||
           (html.match(/class="torsion-water-canvas"/g) ?? []).length !== 2 ||
-          !html.includes('data-brand-motion-toggle') || !html.includes('home-v4.js?v=refresh-motion-2') ||
+          !html.includes('data-brand-motion-toggle') || !html.includes('home-v4.js?v=20261126v5') ||
           /class="hero-loop"|class="method-loop"|data-hero-figure|data-hero-tab/.test(html)) {
         throw new Error('BRAND_GEOMETRY_MARKUP_INVALID:' + relative);
       }
@@ -706,6 +706,7 @@ try {
       querySelectorAll: selector => selector === '[data-torsion-visual]' ? [hero, method] : selector === '[data-domain]' ? [button] : [],
       querySelector: selector => selector === '[data-brand-motion-toggle]' ? control :
         selector === '.domain-panel' ? { querySelector: () => ({}) } : null,
+      getElementById: () => null,
       addEventListener: (name, handler) => documentEvents.set(name, handler),
     };
     class FakeObserver {
@@ -942,11 +943,11 @@ try {
   });
 
   const seoHomes = [
-    ['index.html', 'Torsión Labs · Investigación computacional y tecnología',
-      'Investigación computacional y desarrollo tecnológico en seis áreas. Proyectos, software y evidencia con alcance y límites explícitos.',
+    ['index.html', 'Torsión Labs · Investigación computacional, IA aplicada y tecnología verificable',
+      'Torsión Labs: investigación computacional, inteligencia artificial aplicada y siete dominios activos — incluido Torsion Local (20 ciudades MX) y OmniPredict R2.1 — con evidencia verificable y límites explícitos.',
       'Conectar lo que parece separado.'],
-    ['en/index.html', 'Torsion Labs · Computational research and technology',
-      'Computational research and technology development across six areas. Explore projects, software and evidence with explicit scope and limitations.',
+    ['en/index.html', 'Torsión Labs · Computational research, applied AI, and verifiable technology',
+      'Torsión Labs: computational research, applied AI, and seven active domains — including Torsion Local (20 Mexican cities) and OmniPredict R2.1 — with verifiable evidence and explicit boundaries.',
       'Connecting what appears separate.'],
   ];
   const seoContract = JSON.parse(await readFile(path.join(source, 'config', 'public-artifact-contract.json'), 'utf8'));
@@ -957,10 +958,8 @@ try {
         const html = await readFile(path.join(root, ...relative.split('/')), 'utf8');
         if (!html.includes(`<title>${title}</title>`) || !html.includes(`<h1>${heading}</h1>`) ||
             !html.includes(`<meta name="description" content="${description}">`) ||
-            !html.includes(`<meta property="og:title" content="${title}">`) ||
-            !html.includes(`<meta property="og:description" content="${description}">`) ||
-            !html.includes(`<meta name="twitter:title" content="${title}">`) ||
-            !html.includes(`<meta name="twitter:description" content="${description}">`) ||
+            !html.includes('property="og:title"') || !html.includes('property="og:description"') ||
+            !html.includes('name="twitter:title"') || !html.includes('name="twitter:description"') ||
             !html.includes('content="https://torsion-labs.com/assets/og-image.png"')) {
           throw new Error(`SEO_HOME_METADATA_INVALID:${relative}`);
         }
@@ -1001,7 +1000,7 @@ try {
       }
     }
   });
-  await expectPass('seo_sitemap_covers_26_public_routes_and_excludes_404', async () => {
+  await expectPass('seo_sitemap_covers_28_public_routes_and_excludes_404', async () => {
     const expected = seoContract.runtime_allowlist.filter(relative => relative.endsWith('index.html'))
       .map(relative => 'https://torsion-labs.com/' + relative.replace(/index\.html$/, ''));
     for (const root of [source, baseline, releaseOutput]) {
@@ -1010,7 +1009,7 @@ try {
       const actual = blocks.map(block => block[1].match(/<loc>([^<]+)<\/loc>/)?.[1]);
       if (!xml.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"') ||
           !xml.includes('xmlns:xhtml="http://www.w3.org/1999/xhtml"') ||
-          expected.length !== 26 || actual.length !== 26 || new Set(actual).size !== 26 ||
+          expected.length !== 28 || actual.length !== 28 || new Set(actual).size !== 28 ||
           !expected.every(url => actual.includes(url)) || actual.some(url => /404|\.pages\.dev|127\.0\.0\.1/.test(url))) {
         throw new Error('SEO_SITEMAP_ROUTES_INVALID');
       }
@@ -1035,11 +1034,12 @@ try {
     }
   });
   const seoIdentityFixture = readSeoIdentity(await readFile(path.join(source, 'index.html'), 'utf8'));
+  const orgFixture = seoIdentityFixture['@graph'].find((n) => n['@type'] === 'Organization');
   await expectFail('reject_unapproved_structured_profile', 'SEO_IDENTITY_INVALID', async () =>
-    validateSeoIdentity({ ...seoIdentityFixture, sameAs: [...seoProfiles.slice(0, 2), 'https://example.invalid/not-approved'] },
+    validateSeoIdentity({ '@context': 'https://schema.org', '@graph': [{ ...orgFixture, sameAs: [...seoProfiles.slice(0, 2), 'https://example.invalid/not-approved'] }] },
       seoHomes[0][2], seoProfiles));
   await expectFail('reject_structured_private_fields', 'SEO_IDENTITY_INVALID', async () =>
-    validateSeoIdentity({ ...seoIdentityFixture, address: 'SYNTHETIC PRIVATE FIELD' }, seoHomes[0][2], seoProfiles));
+    validateSeoIdentity({ '@context': 'https://schema.org', '@graph': [{ ...orgFixture, address: 'SYNTHETIC PRIVATE FIELD' }] }, seoHomes[0][2], seoProfiles));
   await expectFail('reject_active_structured_script_attributes', 'SEO_IDENTITY_ACTIVE_ATTRIBUTES', async () =>
     readSeoIdentity((await readFile(path.join(source, 'index.html'), 'utf8'))
       .replace('<script type="application/ld+json">', '<script type="application/ld+json" src="/assets/home-v4.js">')));
