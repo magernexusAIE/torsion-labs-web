@@ -3,12 +3,15 @@
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const visualElements = [...document.querySelectorAll('[data-torsion-visual]')];
   const brandControl = document.querySelector('[data-brand-motion-toggle]');
+  const ambientVideo = document.querySelector('.hero-ambient video');
   const visuals = visualElements.map(element => ({
     element, canvas: element.querySelector('.torsion-water-canvas'),
     kind: element.dataset.torsionVisual, inView: true,
     stages: [...element.querySelectorAll('[data-flow-stage]')], activeStage: 1,
+    lockedStage: null,
     pointer: { x: 0, y: 0, target: 0, strength: 0 },
   })).filter(state => state.canvas);
+
   let brandPaused = false;
   let brandFrame = 0;
   let previousTime = null;
@@ -75,11 +78,11 @@
       ctx.strokeStyle = active ? jade : ink; ctx.lineWidth = 1; ctx.globalAlpha = .65;
       ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + (index % 2 ? 1 : -1) * height * .085); ctx.stroke();
       if (active) {
-        ctx.globalAlpha = .14; ctx.fillStyle = '#62c9a9';
-        ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI * 2); ctx.fill();
+        ctx.globalAlpha = .16; ctx.fillStyle = '#62c9a9';
+        ctx.beginPath(); ctx.arc(x, y, 6.8, 0, Math.PI * 2); ctx.fill();
       }
       ctx.globalAlpha = 1; ctx.fillStyle = active ? jade : ink;
-      ctx.beginPath(); ctx.arc(x, y, active ? 4.5 : 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, active ? 4.8 : 3.5, 0, Math.PI * 2); ctx.fill();
       state.stages[index]?.classList.toggle('is-active', active);
     }
     state.element.classList.add('is-ready');
@@ -95,7 +98,7 @@
     const dark = state.kind === 'hero';
     const ink = dark ? '#b8c9d3' : '#536b7b';
     const paper = dark ? '#11191c' : '#f4f1e9';
-    const copper = dark ? '#d6aa7c' : '#a36c42';
+    const copper = dark ? '#62c9a9' : '#a36c42';
     ctx.clearRect(0, 0, width, height);
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
@@ -111,23 +114,23 @@
     ctx.globalAlpha = .28;
     circle(cx, cy, radius * 1.15, ink);
     ctx.setLineDash([]);
-    const count = dark ? 6 : 4;
+    const count = dark ? 7 : 4;
     for (let i = 0; i < count; i += 1) {
-      const angle = -Math.PI / 2 + i * Math.PI * 2 / count + (dark ? Math.PI / 6 : 0);
+      const angle = -Math.PI / 2 + i * Math.PI * 2 / count;
       const x = cx + Math.cos(angle) * radius * 1.1;
       const y = cy + Math.sin(angle) * radius * 1.1;
-      ctx.globalAlpha = .2;
+      ctx.globalAlpha = .22;
       ctx.beginPath(); ctx.moveTo(x, y);
       ctx.quadraticCurveTo(cx + Math.sin(angle) * radius * .5, cy, cx, cy); ctx.strokeStyle = ink; ctx.stroke();
-      ctx.globalAlpha = .8;
+      ctx.globalAlpha = .85;
       circle(x, y, unit * 2.8, paper, true);
-      circle(x, y, unit * 2.8, ink);
-      circle(x, y, unit * 1.2, i % 3 === 0 ? copper : ink, true);
+      circle(x, y, unit * 2.8, i === 0 ? copper : ink);
+      circle(x, y, unit * 1.25, i === 0 || i === 3 ? copper : ink, true);
     }
     const metallic = ctx.createLinearGradient(cx - radius, cy - radius, cx + radius, cy + radius);
     metallic.addColorStop(0, dark ? '#f4f1e9' : '#829cac');
     metallic.addColorStop(.42, ink);
-    metallic.addColorStop(.7, dark ? '#708a9b' : '#344e5c');
+    metallic.addColorStop(.7, dark ? '#62c9a9' : '#344e5c');
     metallic.addColorStop(1, dark ? '#e1e9ee' : '#a9b9c1');
     const drawArms = (scale, rotation, watery) => {
       ctx.lineWidth = Math.max(1, unit * (scale === 1 ? 1.7 : 1));
@@ -158,16 +161,24 @@
     circle(cx, cy, unit * 16, paper, true);
     ctx.globalAlpha = .25;
     circle(cx, cy, unit * 16, ink);
-    // The small three-arm helix turns once every 36 seconds. The outer arms stay legible.
     drawArms(.27, -elapsed * Math.PI * 2 / 36, false);
     ctx.globalAlpha = 1;
-    circle(cx, cy, unit * 2.2, copper, true);
+    circle(cx, cy, unit * 2.3, copper, true);
     state.element.classList.add('is-ready');
   }
 
   const brandEnabled = () => !brandPaused && !motionPreference.matches && !document.hidden;
   const brandAllowed = () => brandEnabled() && visuals.some(state => state.inView &&
     (state.kind === 'hero' || state.pointer.target > 0 || state.pointer.strength > .001));
+
+  function syncAmbient() {
+    if (!ambientVideo) return;
+    ambientVideo.muted = true;
+    ambientVideo.playbackRate = 0.7;
+    if (brandEnabled()) ambientVideo.play().catch(() => {});
+    else ambientVideo.pause();
+  }
+
   function updateBrandControl() {
     if (!brandControl) return;
     const staticMotion = motionPreference.matches;
@@ -179,6 +190,7 @@
     brandControl.setAttribute('aria-label', label);
     brandControl.setAttribute('aria-pressed', String(brandPaused || staticMotion));
   }
+
   function drawBrand(time) {
     brandFrame = 0;
     if (brandAllowed()) {
@@ -191,14 +203,41 @@
     }
     if (brandAllowed()) brandFrame = requestAnimationFrame(drawBrand);
   }
+
   function syncBrandMotion() {
     cancelAnimationFrame(brandFrame);
     brandFrame = 0;
     previousTime = null;
     if (!brandAllowed() || !finePointer.matches) for (const state of visuals) state.pointer.target = state.pointer.strength = 0;
     updateBrandControl();
+    syncAmbient();
     drawBrand(performance.now());
   }
+
+  // Detalle interactivo de las 4 etapas del método
+  const methodDetailTitle = document.getElementById('method-detail-title');
+  const methodDetailCopy = document.getElementById('method-detail-copy');
+  const methodState = visuals.find(v => v.kind === 'method');
+
+  function setMethodStage(idx) {
+    if (!methodState) return;
+    methodState.activeStage = idx;
+    methodState.lockedStage = idx;
+    const li = methodState.stages[idx];
+    if (li && methodDetailTitle && methodDetailCopy) {
+      methodDetailTitle.textContent = li.dataset.stageTitle || li.textContent.trim();
+      methodDetailCopy.textContent = li.dataset.stageCopy || '';
+    }
+    paintVisual(methodState);
+  }
+
+  if (methodState) {
+    methodState.stages.forEach((li, idx) => {
+      const btn = (typeof li.querySelector === 'function' && li.querySelector('.method-stage-btn')) || li;
+      btn.addEventListener('click', () => setMethodStage(idx));
+    });
+  }
+
   for (const state of visuals) {
     state.element.addEventListener('pointermove', event => {
       if (!finePointer.matches || !brandEnabled() || !state.inView) return;
@@ -209,7 +248,9 @@
         const t = Math.max(0, Math.min(1, (state.pointer.x / box.width - .1) / .8));
         const [, lineY] = methodPoint(t, box.width, box.height);
         state.pointer.target = Math.abs(state.pointer.y - lineY) < box.height * .24 ? 1 : 0;
-        state.activeStage = state.pointer.target ? Math.round(t * 3) : 1;
+        if (state.lockedStage === null) {
+          state.activeStage = state.pointer.target ? Math.round(t * 3) : 1;
+        }
       } else {
         const radius = Math.min(box.width, box.height) * .34;
         state.pointer.target = Math.hypot(state.pointer.x - box.width / 2, state.pointer.y - box.height / 2) < radius * 1.2 ? 1 : 0;
@@ -217,8 +258,12 @@
       if (!brandFrame && brandAllowed()) { previousTime = null; drawBrand(performance.now()); }
       else if (state.kind === 'method' && !brandFrame) paintVisual(state);
     });
-    state.element.addEventListener('pointerleave', () => { state.pointer.target = 0; state.activeStage = 1; });
+    state.element.addEventListener('pointerleave', () => {
+      state.pointer.target = 0;
+      if (state.lockedStage === null) state.activeStage = 1;
+    });
   }
+
   if (brandControl) brandControl.addEventListener('click', () => { brandPaused = !brandPaused; syncBrandMotion(); });
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
@@ -236,17 +281,63 @@
   addEventListener('resize', syncBrandMotion);
   syncBrandMotion();
 
+  // Selector visual interactivo de los 7 dominios
   const panel = document.querySelector('.domain-panel');
   const buttons = [...document.querySelectorAll('[data-domain]')];
-  buttons.forEach((button, index) => button.addEventListener('click', () => {
-    buttons.forEach(item => item.classList.toggle('active', item === button));
-    panel.querySelector('span').textContent = `${String(index + 1).padStart(2,'0')} / 06`;
-    panel.querySelector('h3').textContent = button.dataset.domain;
-    panel.querySelector('p').textContent = button.dataset.copy;
-    panel.querySelector('a').href = button.dataset.link;
-  }));
-  buttons[0].classList.add('active');
+  const heroLabels = [...document.querySelectorAll('.torsion-visual--hero .torsion-visual-label')];
 
+  function activateDomain(index) {
+    const button = buttons[index];
+    if (!button || !panel) return;
+    buttons.forEach(item => item.classList.toggle('active', item === button));
+    heroLabels.forEach((lbl, i) => lbl.classList.toggle('is-highlight', i === index));
+    const total = String(buttons.length).padStart(2, '0');
+    const counter = panel.querySelector('[data-domain-counter]');
+    const title = panel.querySelector('[data-domain-title]');
+    const copy = panel.querySelector('[data-domain-copy]');
+    const link = panel.querySelector('[data-domain-link]');
+    const extLink = panel.querySelector('[data-domain-ext]');
+    const img = panel.querySelector('[data-domain-img]');
+    const emblem = panel.querySelector('[data-domain-emblem]');
+    if (counter) counter.textContent = `${String(index + 1).padStart(2, '0')} / ${total}`;
+    if (title) title.textContent = button.dataset.domain;
+    if (copy) copy.textContent = button.dataset.copy;
+    if (link) link.href = button.dataset.link;
+    if (img && button.dataset.img) {
+      img.src = button.dataset.img;
+      img.alt = button.dataset.domain;
+    }
+    if (emblem && button.dataset.emblem) emblem.src = button.dataset.emblem;
+    if (extLink) {
+      if (button.dataset.ext) {
+        extLink.href = button.dataset.ext;
+        extLink.textContent = button.dataset.extLabel || 'Ver plataforma live ↗';
+        extLink.hidden = false;
+      } else {
+        extLink.hidden = true;
+      }
+    }
+  }
+
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', () => activateDomain(index));
+  });
+  heroLabels.forEach((lbl, index) => {
+    lbl.setAttribute('tabindex', '0');
+    lbl.setAttribute('role', 'button');
+    const jump = () => {
+      activateDomain(index);
+      const sec = document.getElementById('explora') || document.getElementById('explore');
+      if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    lbl.addEventListener('click', jump);
+    lbl.addEventListener('keydown', ev => {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); jump(); }
+    });
+  });
+  if (buttons.length) activateDomain(0);
+
+  // Deck interactivo de 4 escenas de video
   const deck = document.querySelector('[data-live-deck]');
   if (deck) {
     const tabs = [...deck.querySelectorAll('[data-live-tab]')];
@@ -271,6 +362,7 @@
     function syncPlayback() {
       panels.forEach(item => {
         const video = item.querySelector('video');
+        if (!video) return;
         const shouldPlay = item.dataset.livePanel === activeId && !pausedByUser && !motionPreference.matches && inViewport && !document.hidden;
         video.muted = true;
         const configuredRate = Number(video.dataset.playbackRate);
@@ -321,7 +413,7 @@
       const observer = new IntersectionObserver(entries => {
         inViewport = entries[0].isIntersecting;
         syncPlayback();
-      }, {threshold: .15});
+      }, { threshold: .15 });
       observer.observe(deck);
     }
 

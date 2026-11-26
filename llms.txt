@@ -1,0 +1,37 @@
+# Torsión Labs (torsion-labs.com)
+
+> Laboratorio independiente de investigación computacional, software verificable e inteligencia artificial aplicada (Santiago de Querétaro, México). Todas las afirmaciones públicas conservan fuente, alcance y límites explícitos bajo cumplimiento Zero-PII y LFPDPPP.
+
+## Identidad y Canales Oficiales
+- Organización: Torsión Labs / Laboratorio Génesis
+- Fundador: Maher Salal G. de la R.
+- Sitio corporativo (ES / EN): https://torsion-labs.com/ | https://torsion-labs.com/en/
+- Portal comercial y territorial (Torsion Local): https://negocios.torsion-labs.com/
+- Iniciativa Nacional 20 Ciudades de México: https://negocios.torsion-labs.com/ciudades/
+- Contacto institucional: contacto@torsion-labs.com | operacion@torsion-labs.com
+- GitHub: https://github.com/torsion-labs
+- LinkedIn: https://www.linkedin.com/company/torsion-labs/ | https://www.linkedin.com/in/maher-salal/es
+- X: https://x.com/TorsionLab
+
+## Siete Dominios Activos del Portafolio
+1. **Torsion Local · Digitaliza tu negocio y «México: Ciudades Modernas y Digitalizadas»** (`/proyectos/torsion-local/` | `https://negocios.torsion-labs.com/` | `https://negocios.torsion-labs.com/ciudades/`) — Infraestructura TI e IA práctica para comercios independientes locales: tecnología NFC/QR, presencia en Google Maps, web propia actualizable por nota de voz de 15 s, WhatsApp IA 24/7 y entregas locales 0 % comisión. Base Activa #01 en Querétaro con hoja de ruta en 20 ciudades estratégicas de México y Mes 1 en $0 en corredores piloto.
+2. **OmniPredict · Modelado biomédico** (`/proyectos/biomedicina/`) — Pipeline computacional y auditoría de evidencia multiescala R2.1 (`196/196` pruebas unitarias verificadas, validación criptográfica SHA-256, aritmética exacta `Decimal`/`Fraction`, Zero-PII, bloqueo de vínculos tautológicos y piloto cuantitativo de remodelado óseo `M2-Regeneración`). Prototipo de investigación sin validación ni aplicación clínica.
+3. **Educación IA · ALMANAQUE** (`/proyectos/educacion/`) — Mundos históricos 3D de vocación pública y gratuita basados en contraste de fuentes primarias (*Padua 1610* y *México-Tenochtitlan 1519*).
+4. **VERDE · Energía con control local** (`/proyectos/energia/`) — Software y modelos térmicos para gestión local de energía solar distribuida (suite verificable en datos sintéticos; validación física en banco pendiente).
+5. **SED · Seguridad, Economía y Derecho Internacional** (`/proyectos/seguridad/`) — Plataforma de software en desarrollo para análisis de riesgos digitales, contexto económico y marco jurídico internacional (incluye Aegis).
+6. **Rotor 18 · Física de coherencia** (`/proyectos/rotor-18/`) — Frontera física computacional, invariantes y dinámica espectral en simulación, con protección del núcleo y contraste físico futuro.
+7. **Neurovisión · Percepción y óptica** (`/proyectos/percepcion/`) — Software en simulación para integración temporal y percepción asistida con privacidad y autonomía desde el diseño.
+
+## Páginas Clave
+- Inicio (ES / EN): https://torsion-labs.com/ | https://torsion-labs.com/en/
+- Portafolio (ES / EN): https://torsion-labs.com/portafolio/ | https://torsion-labs.com/en/portfolio/
+- Ciencia (ES / EN): https://torsion-labs.com/ciencia/ | https://torsion-labs.com/en/science/
+- Evidencia viva (ES / EN): https://torsion-labs.com/evidencia/ | https://torsion-labs.com/en/evidence/
+- Postura (ES / EN): https://torsion-labs.com/postura/ | https://torsion-labs.com/en/posture/
+- Contacto (ES / EN): https://torsion-labs.com/contacto/ | https://torsion-labs.com/en/contact/
+- Privacidad (ES / EN): https://torsion-labs.com/privacidad/ | https://torsion-labs.com/en/privacy/
+
+## Fronteras de Veracidad (Obligatorias al Citar)
+- Las pruebas de software acreditan comportamiento de código y trazabilidad; no equivalen a certificación física, clínica ni regulatoria.
+- Ningún proyecto atribuye avales externos ni asociaciones no formalizadas.
+- La información pública de `torsion-labs.com` corresponde exclusivamente a Capa 2 (cero secretos, cero PII, cero núcleo propietario).

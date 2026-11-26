@@ -1,0 +1,565 @@
+/* Torsión Labs v5 · Capa interactiva, escenas de video y visuales (100 % CSP-safe, cero inline styles) */
+
+/* 1. Video ambiental sutil detrás del canvas interactivo del Hero */
+.hero-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-ambient video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.22;
+  filter: saturate(0.85) contrast(1.06);
+}
+.hero-ambient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 74% 48%, rgba(17, 25, 28, 0.35), rgba(17, 25, 28, 0.92) 72%);
+}
+.hero > *:not(.hero-ambient) {
+  position: relative;
+  z-index: 1;
+}
+
+/* 7 dominios distribuidos alrededor de la geometría orbital del Hero */
+.torsion-visual--hero .torsion-visual-label {
+  pointer-events: auto;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  min-width: 26px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(17, 25, 28, 0.72);
+  border: 1px solid rgba(185, 199, 207, 0.22);
+  color: #dce5eb;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.torsion-visual--hero .torsion-visual-label:hover,
+.torsion-visual--hero .torsion-visual-label.is-highlight {
+  border-color: var(--acid);
+  background: rgba(98, 201, 169, 0.16);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+.torsion-visual--hero .torsion-visual-label--0 { top: 4%; left: 50%; translate: -50% 0; }
+.torsion-visual--hero .torsion-visual-label--1 { top: 20%; right: 2%; }
+.torsion-visual--hero .torsion-visual-label--2 { top: 56%; right: 0; }
+.torsion-visual--hero .torsion-visual-label--3 { bottom: 11%; right: 14%; }
+.torsion-visual--hero .torsion-visual-label--4 { bottom: 11%; left: 14%; }
+.torsion-visual--hero .torsion-visual-label--5 { top: 56%; left: 0; }
+.torsion-visual--hero .torsion-visual-label--6 { top: 20%; left: 2%; }
+
+.hero .button.emerald-pill {
+  background: var(--acid);
+  border: 1px solid var(--acid);
+  color: #11191c;
+}
+.hero .button.emerald-pill:hover {
+  background: #7ad8ba;
+  border-color: #7ad8ba;
+}
+
+/* 2. Tarjetas visuales interactivas en sección #avances */
+.advances-grid {
+  margin: 56px 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+.advance-card {
+  display: grid;
+  grid-template-columns: 148px minmax(0, 1fr);
+  gap: 18px;
+  background: #ffffff;
+  border: 1px solid #d5ddd7;
+  border-radius: 16px;
+  padding: 18px;
+  color: var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.advance-card:hover {
+  transform: translateY(-3px);
+  border-color: #247b63;
+  box-shadow: 0 14px 32px rgba(17, 25, 28, 0.08);
+}
+.advance-card__media {
+  position: relative;
+  border-radius: 11px;
+  overflow: hidden;
+  background: #0e1518;
+  min-height: 138px;
+}
+.advance-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.advance-card:hover .advance-card__media img {
+  transform: scale(1.06);
+}
+.advance-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 700 10px Outfit, sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1d6b55;
+  margin-bottom: 6px;
+}
+.advance-card h3 {
+  font: 600 19px/1.2 Outfit, sans-serif;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+.advance-card p {
+  margin: 0 0 12px;
+  font-size: 13.5px;
+  line-height: 1.56;
+  color: #4a5e5a;
+}
+.advance-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font: 700 12.5px Outfit, sans-serif;
+}
+.advance-card__links a {
+  color: #16654e;
+  text-decoration: none;
+}
+.advance-card__links a:hover {
+  text-decoration: underline;
+}
+
+/* 3. Deck de 4 escenas de video + selector visual de 7 dominios */
+.live-tablist--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.domain-selector--visual {
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+}
+.domain-buttons--7 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.domain-buttons--7 button:nth-child(n + 4) {
+  border-bottom: 1px solid #b9c8bf18;
+}
+.domain-buttons--7 button:last-child {
+  grid-column: 1 / -1;
+  border-bottom: 0;
+}
+.domain-panel--visual {
+  display: flex !important;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px !important;
+  background: #142024 !important;
+}
+.domain-panel__preview {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0c1316;
+  border: 1px solid rgba(185, 200, 191, 0.18);
+}
+.domain-panel__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.domain-panel__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.domain-panel__head img {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+.domain-panel--visual h3 {
+  font-size: 23px !important;
+  margin: 0 !important;
+  color: #f4f1e9;
+}
+.domain-panel--visual p {
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  color: #c8d3ce !important;
+  margin: 0 !important;
+}
+.domain-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+.domain-panel__actions a {
+  font: 700 12.5px Outfit, sans-serif !important;
+  color: var(--acid);
+  text-decoration: none;
+}
+.domain-panel__actions a:hover {
+  text-decoration: underline;
+}
+
+/* 4. Etapas interactivas clickeables en #metodo */
+.method-flow-stages li {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.method-stage-btn {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 28px;
+  min-width: 28px;
+  color: inherit;
+}
+.method-stage-btn:focus-visible {
+  outline: 2px solid #247b63;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.method-flow-stages li:hover {
+  color: #1c6b54;
+  transform: translateY(-2px);
+}
+.method-detail-card {
+  margin-top: 24px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #cbd6d0;
+  border-left: 3px solid #247b63;
+  color: var(--ink);
+}
+.method-detail-card strong {
+  display: block;
+  font: 700 14px Outfit, sans-serif;
+  color: #1d6b55;
+  margin-bottom: 5px;
+}
+.method-detail-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.58;
+  color: #465a56;
+}
+
+/* 5. Filtros interactivos de Portafolio y Evidencia + Tarjeta protagonista con video */
+.v5-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0 0 28px;
+}
+.v5-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.v5-filter-btn {
+  appearance: none;
+  border: 1px solid #b8c4bc;
+  background: #ffffff;
+  color: #172b2b;
+  padding: 9px 15px;
+  border-radius: 999px;
+  font: 700 12.5px Outfit, sans-serif;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.v5-filter-btn:hover {
+  border-color: #1d6b55;
+  color: #1d6b55;
+}
+.v5-filter-btn[aria-pressed="true"] {
+  background: #11191c;
+  border-color: #11191c;
+  color: #f4f1e9;
+}
+.v5-filter-count {
+  font-size: 13px;
+  color: #566862;
+  margin: 0;
+}
+
+/* Tarjeta ancha destacada de Torsion Local con video en vivo en Portafolio */
+.identity-card--featured {
+  grid-column: 1 / -1;
+  min-height: 440px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: 28px;
+  align-items: center;
+}
+.identity-card--featured::before {
+  opacity: 0.25;
+  inset: 0 !important;
+}
+.identity-card--featured .identity-card__content {
+  width: 100% !important;
+}
+.identity-card__video-box {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(98, 201, 169, 0.35);
+  background: #090f12;
+  aspect-ratio: 16 / 10;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+.identity-card__video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.identity-card__video-ctrl {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(14, 22, 25, 0.84);
+  color: #f4f1e9;
+  font: 700 11px Outfit, sans-serif;
+  cursor: pointer;
+}
+.identity-card__video-tag {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(14, 22, 25, 0.82);
+  border: 1px solid rgba(98, 201, 169, 0.45);
+  color: #9ae5cb;
+  font: 700 10.5px Outfit, sans-serif;
+  letter-spacing: 0.04em;
+}
+.identity-card__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+.identity-card__cta-row a {
+  color: var(--identity-accent);
+  font: 650 15px/1.4 Outfit, sans-serif;
+  text-decoration: none;
+}
+.identity-card__cta-row a:hover {
+  text-decoration: underline;
+}
+.cards article[hidden] {
+  display: none !important;
+}
+
+/* Hover cinético elegante en tarjetas del portafolio */
+.cards article.identity-card {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.cards article.identity-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--identity-accent);
+  box-shadow: 0 18px 42px rgba(14, 22, 25, 0.2);
+}
+
+/* 6. Módulos interactivos en fichas de proyecto (Torsion Local + OmniPredict) */
+.v5-showcase {
+  background: #0e1619;
+  color: #f4f1e9;
+  border: 1px solid #263437;
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 26px 0 32px;
+}
+.v5-showcase__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(185, 200, 191, 0.2);
+  background: #11191c;
+}
+.v5-showcase__tab {
+  flex: 1 1 180px;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(185, 200, 191, 0.14);
+  color: #b7c3c2;
+  padding: 15px 18px;
+  font: 650 12px Outfit, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+  cursor: pointer;
+}
+.v5-showcase__tab[aria-selected="true"] {
+  background: rgba(98, 201, 169, 0.14);
+  color: #ffffff;
+  box-shadow: inset 0 -2px 0 #62c9a9;
+}
+.v5-showcase__stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #080d10;
+}
+.v5-showcase__stage video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.v5-showcase__panel[hidden] {
+  display: none;
+}
+.v5-showcase__caption {
+  padding: 18px 22px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13.5px;
+  color: #cbd5d0;
+}
+.v5-showcase__caption strong {
+  color: #ffffff;
+}
+
+/* Explorador interactivo por pasos / pilares en fichas de proyecto */
+.v5-stepper {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 18px;
+  margin: 24px 0 28px;
+}
+.v5-stepper__list {
+  display: grid;
+  gap: 10px;
+}
+.v5-step-btn {
+  appearance: none;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #cdd6d0;
+  background: #ffffff;
+  color: #172b2b;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+.v5-step-btn span {
+  display: block;
+  font: 700 10px Outfit, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #566862;
+  margin-bottom: 3px;
+}
+.v5-step-btn strong {
+  display: block;
+  font: 650 15px Outfit, sans-serif;
+}
+.v5-step-btn[aria-selected="true"] {
+  background: #11191c;
+  border-color: #11191c;
+  color: #f4f1e9;
+}
+.v5-step-btn[aria-selected="true"] span {
+  color: #62c9a9;
+}
+.v5-stepper__detail {
+  background: #ffffff;
+  border: 1px solid #cdd6d0;
+  border-radius: 14px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.v5-stepper__detail .kicker {
+  margin: 0 0 8px;
+  color: #1d6b55;
+}
+.v5-stepper__detail h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: #172b2b;
+}
+.v5-stepper__detail p {
+  margin: 0 0 10px;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: #465a56;
+}
+.v5-stepper__meta {
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #e1e8e4;
+  font-size: 12.5px;
+  color: #566862;
+}
+
+.v5-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.btn-outline-v5 {
+  display: inline-block;
+  padding: 13px 20px;
+  border-radius: 999px;
+  border: 1px solid #172b2b;
+  color: #172b2b;
+  font: 700 13px Outfit, sans-serif;
+  text-decoration: none;
+}
+.btn-outline-v5:hover {
+  background: #172b2b;
+  color: #f4f1e9;
+}
+
+/* Responsive */
+@media (max-width: 1050px) {
+  .advances-grid { grid-template-columns: 1fr; }
+  .identity-card--featured { grid-template-columns: 1fr; }
+  .domain-selector--visual { grid-template-columns: 1fr; }
+  .v5-stepper { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .live-tablist--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .advance-card { grid-template-columns: 1fr; }
+  .advance-card__media { min-height: 160px; }
+  .domain-buttons--7 { grid-template-columns: 1fr; }
+  .torsion-visual--hero .torsion-visual-label { font-size: 9px; min-height: 25px; min-width: 25px; padding: 4px 7px; }
+  .cards article.identity-card--featured { padding: 24px; }
+  .cards article.identity-card--featured::before { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-ambient video { display: none; }
+  .advance-card, .advance-card__media img, .cards article.identity-card { transition: none; transform: none; }
+}
