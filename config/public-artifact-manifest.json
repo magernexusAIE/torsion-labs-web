@@ -107,8 +107,8 @@
     },
     {
       "path": "proyectos/seguridad/index.html",
-      "sha256": "4C310F96D6547A1AF6923A3FA025323057238B9F011FC99F93712D152459F2D4",
-      "bytes": 10377,
+      "sha256": "7A82C16715427DA414C80C24B9797EFB6B667A9AB43662F92FCFB451456802A6",
+      "bytes": 10337,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -149,8 +149,8 @@
     },
     {
       "path": "en/proyectos/seguridad/index.html",
-      "sha256": "EED3AA6B54040B2F7FABCA21B68AF08599CE74FCAF49C129FC2A785697F94515",
-      "bytes": 10025,
+      "sha256": "894408FB7FD169BCD6545C0AE6AAFC655CFDFD85E4C1F4C22691AEFBEB5CD2E0",
+      "bytes": 9985,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -473,8 +473,8 @@
     },
     {
       "path": "assets/identity-v1/emblems/torsion-local.svg",
-      "sha256": "2E8A9EEE795BC54EA2BC8700E8FD7EE9837E360589CB174AC23F22C58CBA7D30",
-      "bytes": 393,
+      "sha256": "A55462CCE5029373FACFB73C4F11B47CC64AB5341D100012C5D21B194D2369E2",
+      "bytes": 388,
       "mime": "image/svg+xml"
     },
     {
