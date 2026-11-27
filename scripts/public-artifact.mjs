@@ -10,8 +10,11 @@ const APPROVED_EXTERNAL_LINKS = [
   'https://github.com/torsion-labs',
   'https://www.linkedin.com/company/torsion-labs/',
   'https://x.com/TorsionLab',
+  'https://www.instagram.com/torsion.local/',
+  'https://www.facebook.com/people/Torsion-Local/61596633770449/',
   'https://negocios.torsion-labs.com/',
   'https://negocios.torsion-labs.com/ciudades/',
+  'https://www.linkedin.com/in/maher-salal/es',
 ];
 const SYNTHETIC_CONTROLLER = 'SYNTHETIC & CONTROLLER <TEST>';
 const SYNTHETIC_ADDRESS = 'SYNTHETIC ADDRESS <TEST> 123';
