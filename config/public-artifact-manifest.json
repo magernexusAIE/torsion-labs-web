@@ -5,8 +5,8 @@
   "files": [
     {
       "path": "index.html",
-      "sha256": "B9318AF116D59A87B16C7A962B3B8731105CE03EBA4CF21B1F3227ABFAD37527",
-      "bytes": 32578,
+      "sha256": "432890F3E86013623CA77AAAAEC7018C0F71E791908CFE9491A7391C7A4B13A1",
+      "bytes": 32676,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -17,8 +17,8 @@
     },
     {
       "path": "en/index.html",
-      "sha256": "E006C8920937509C632E1E41313D16E8B11FD0216BE96ACE8658F16C1EC3C8C5",
-      "bytes": 31635,
+      "sha256": "C38E0663A22FCE71EDDA546182E9315B2B0FA5030B287BDFF74288BE8495B0B6",
+      "bytes": 31733,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -131,8 +131,8 @@
     },
     {
       "path": "proyectos/torsion-local/index.html",
-      "sha256": "DA7EBFE7C495E28FCFC8CB63981C5AA0B4F62743A5D754E53A88A92C7BE32588",
-      "bytes": 17612,
+      "sha256": "7842BCA05E51D7A7F6A65F6866C998243BD1C9D36897C1E0A1D2BE25BC5C3641",
+      "bytes": 17626,
       "mime": "text/html; charset=utf-8"
     },
     {
@@ -173,8 +173,8 @@
     },
     {
       "path": "en/proyectos/torsion-local/index.html",
-      "sha256": "89C3302C08BFD4378B41FFBE32F2C93C323990C68397E5AEE03B34D2C6894C5C",
-      "bytes": 17241,
+      "sha256": "889B162351B6139DD5FE509E053D307C905F1AA18DAEE73A51FC6ABC1FF9FD90",
+      "bytes": 17255,
       "mime": "text/html; charset=utf-8"
     },
     {
