@@ -4,14 +4,16 @@
 
 ## Identidad y Canales Oficiales
 - Organización: Torsión Labs / Laboratorio Génesis
-- Fundador: Maher Salal G. de la R.
+- Fundador e Investigador Principal: Maher Salal G. de la R.
 - Sitio corporativo (ES / EN): https://torsion-labs.com/ | https://torsion-labs.com/en/
 - Portal comercial y territorial (Torsion Local): https://negocios.torsion-labs.com/
 - Iniciativa Nacional 20 Ciudades de México: https://negocios.torsion-labs.com/ciudades/
-- Contacto institucional: contacto@torsion-labs.com | operacion@torsion-labs.com
+- Contacto institucional y científico: operacion@torsion-labs.com
 - GitHub: https://github.com/torsion-labs
 - LinkedIn: https://www.linkedin.com/company/torsion-labs/ | https://www.linkedin.com/in/maher-salal/es
 - X: https://x.com/TorsionLab
+- Instagram: https://www.instagram.com/torsion.local/
+- Facebook: https://www.facebook.com/people/Torsion-Local/61596633770449/
 
 ## Siete Dominios Activos del Portafolio
 1. **Torsion Local · Digitaliza tu negocio y «México: Ciudades Modernas y Digitalizadas»** (`/proyectos/torsion-local/` | `https://negocios.torsion-labs.com/` | `https://negocios.torsion-labs.com/ciudades/`) — Infraestructura TI e IA práctica para comercios independientes locales: tecnología NFC/QR, presencia en Google Maps, web propia actualizable por nota de voz de 15 s, WhatsApp IA 24/7 y entregas locales 0 % comisión. Base Activa #01 en Querétaro con hoja de ruta en 20 ciudades estratégicas de México y Mes 1 en $0 en corredores piloto.

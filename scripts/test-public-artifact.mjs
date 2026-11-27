@@ -76,6 +76,7 @@ function readSeoIdentity(html) {
 function validateSeoIdentity(data, description, profiles) {
   const graph = Array.isArray(data?.['@graph']) ? data['@graph'] : [data];
   const org = graph.find((node) => node?.['@type'] === 'Organization');
+  const orgProfiles = profiles.filter((p) => !p.includes('/in/maher-salal/'));
   if (!data || typeof data !== 'object' || Array.isArray(data) ||
       data['@context'] !== 'https://schema.org' || !org ||
       org['@id'] !== 'https://torsion-labs.com/#organization' || org.name !== 'Torsión Labs' ||
@@ -83,8 +84,8 @@ function validateSeoIdentity(data, description, profiles) {
       org.logo !== 'https://torsion-labs.com/assets/logo-torsion.svg' ||
       'address' in org || 'telephone' in org || 'email' in org ||
       JSON.stringify(org.alternateName) !== JSON.stringify(['Torsión', 'Torsion Labs']) ||
-      !Array.isArray(org.sameAs) || org.sameAs.length !== profiles.length ||
-      new Set(org.sameAs).size !== profiles.length || !profiles.every(profile => org.sameAs.includes(profile))) {
+      !Array.isArray(org.sameAs) || org.sameAs.length !== orgProfiles.length ||
+      new Set(org.sameAs).size !== orgProfiles.length || !orgProfiles.every(profile => org.sameAs.includes(profile))) {
     throw new Error('SEO_IDENTITY_INVALID');
   }
 }
@@ -169,6 +170,8 @@ try {
       'https://github.com/torsion-labs',
       'https://www.linkedin.com/company/torsion-labs/',
       'https://x.com/TorsionLab',
+      'https://www.instagram.com/torsion.local/',
+      'https://www.facebook.com/people/Torsion-Local/61596633770449/',
     ];
     for (const [relative, noticeRoute] of [
       ['index.html', '/privacidad/'],
@@ -187,6 +190,8 @@ try {
       ['GitHub', 'https://github.com/torsion-labs'],
       ['LinkedIn', 'https://www.linkedin.com/company/torsion-labs/'],
       ['X', 'https://x.com/TorsionLab'],
+      ['Instagram', 'https://www.instagram.com/torsion.local/'],
+      ['Facebook', 'https://www.facebook.com/people/Torsion-Local/61596633770449/'],
     ];
     const contract = JSON.parse(await readFile(path.join(source, 'config', 'public-artifact-contract.json'), 'utf8'));
     const pages = contract.runtime_allowlist.filter((relative) => relative.endsWith('.html'));
@@ -486,9 +491,9 @@ try {
     for (const relative of ['index.html', 'en/index.html']) {
       const html = await readFile(path.join(baseline, ...relative.split('/')), 'utf8');
       const deck = html.slice(html.indexOf('<section class="live-deck"'), html.indexOf('<div class="domain-selector'));
-      if ((deck.match(/class="live-visual"/g) ?? []).length !== 4 ||
-          (deck.match(/class="live-caption"/g) ?? []).length !== 4 ||
-          (deck.match(/<video muted loop playsinline preload="metadata"/g) ?? []).length !== 4 ||
+      if ((deck.match(/class="live-visual"/g) ?? []).length !== 3 ||
+          (deck.match(/class="live-caption"/g) ?? []).length !== 3 ||
+          (deck.match(/<video muted loop playsinline preload="metadata"/g) ?? []).length !== 3 ||
           /autoplay|live-motion|live-grid/.test(deck)) throw new Error('MODERN_DECK_MARKUP_INVALID:' + relative);
       for (const kind of ['field', 'network']) {
         if (!deck.includes('/assets/live/torsion-' + kind + '-v2.mp4') ||
@@ -503,7 +508,7 @@ try {
       if (!limits.every(value => deck.includes(value))) throw new Error('MODERN_DECK_LIMITS_MISSING');
       const tabOrder = [...deck.matchAll(/data-live-tab="([^"]+)"/g)].map(match => match[1]);
       const panelOrder = [...deck.matchAll(/data-live-panel="([^"]+)"/g)].map(match => match[1]);
-      if (tabOrder.join(',') !== 'network,territory,field,method' || panelOrder.join(',') !== 'network,territory,field,method') {
+      if (tabOrder.join(',') !== 'network,territory,field' || panelOrder.join(',') !== 'network,territory,field') {
         throw new Error('MODERN_DECK_SWAPPED_ORDER_INVALID:' + relative);
       }
       for (const [kind, number, rate, hidden] of [['network', '01', '0.85', false], ['field', '03', '0.75', true]]) {
